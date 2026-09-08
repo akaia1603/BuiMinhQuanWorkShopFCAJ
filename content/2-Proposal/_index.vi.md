@@ -1,6 +1,6 @@
 ---
 title: "Bản đề xuất"
-date: 2026-05-01
+date: 2026-07-25
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -63,18 +63,18 @@ Cognito, WAF, CloudFront, API Gateway, Lambda, DynamoDB, EC2 Spot, CodeDeploy, S
 
 ### 4. Triển khai kỹ thuật
 
-1. **Tháng 1:** Thiết kế VPC, IAM, security group, KMS.
-2. **Tháng 1–2:** Cognito, S3, API Gateway, DynamoDB schema.
-3. **Tháng 2:** Matchmaker Lambda, ASG Spot, launch template Graviton.
-4. **Tháng 3:** GitHub Actions, CodeDeploy, DynamoDB Streams, load test.
+1. **Tuần 1:** Thiết kế VPC, IAM, security group, KMS.
+2. **Tuần 2–3:** Cognito, S3, API Gateway, DynamoDB schema.
+3. **Tuần 4:** Matchmaker Lambda, ASG Spot, launch template Graviton.
+4. **Tuần 5–6:** GitHub Actions, CodeDeploy, DynamoDB Streams, load test.
 
 ---
 
 ### 5. Timeline & Milestone
 
-- **Tháng 1:** Thiết kế kiến trúc và network.
-- **Tháng 2:** Matchmaking serverless và EC2 Spot automation.
-- **Tháng 3:** GitOps pipeline, kiểm thử và triển khai.
+- **Tuần 1–2:** Thiết kế kiến trúc và network.
+- **Tuần 3–4:** Matchmaking serverless và EC2 Spot automation.
+- **Tuần 5–7:** GitOps pipeline, kiểm thử và triển khai.
 
 ---
 

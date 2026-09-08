@@ -1,126 +1,94 @@
 ---
 title: "Event 1"
-date: 2026-01-01
+date: 2026-07-25
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# AWS Enterprise Cloud Architectures & Industry Application — Attendance Report
+# AWS Vietnam Community Meetup — Attendance Report
 
-**Event:** AWS Enterprise Cloud Architectures and Industry Application — Swinburne Vietnam Study Tour  
-**Date:** 2026 (third annual Swinburne–AWS study tour; co-hosted with AWS First Cloud AI Journey)  
-**Location:** Amazon Web Services Vietnam  
-**Role:** Attendee (Swinburne Vietnam student participant)
+**Event:** AWS Vietnam Community Meetup — AI Trends & Agentic Architectures on AWS  
+**Date:** Saturday, 25/07/2026 – 08:30 to 12:00 (check-in 08:30, program starts 09:00)  
+**Location:** AWS Hanoi – 7th Floor, Grand Terra Tower, 36 Cát Linh, Đống Đa, Hanoi  
+**Role:** Attendee
 
 ## Event overview
 
-A study-tour session for Swinburne Vietnam students (including the Cần Thơ campus cohort) to hear directly from AWS and industry practitioners about cloud career trends, data engineering in production, soft skills, and responsible AI use—extending the **COS2019 Cloud Computing Architecture** course (AWS Academy).
+A half-day AWS community meetup bringing together AWS Community Heroes, Community Builders, and engineers actively deploying AI in the enterprise. The program covered the latest AI trends and how to apply them on AWS, from open-source AI agents to agent-pattern selection. It also included a tea break & networking session and a Kahoot quiz / lucky draw with AWS Community gifts.
 
-## Speakers
+## Program & speakers
 
-| # | Speaker | Role / organization |
-|---|---------|---------------------|
-| 1 | **Nguyễn Trần Minh Duy** | Industry Liaison Officer, **Swinburne Vietnam** |
-| 2 | **Nguyễn Gia Hưng** | Head of Solution Architect, **Amazon Web Services Vietnam**; Founder, **AWS First Cloud AI Journey (FCAJ)** |
-| 3 | **Bành Cẩm Vĩnh** | Data Engineer, **Renova Cloud**; AWS Community Builder (Data) |
-| 4 | **Như Trần** | Account Manager, **Amazon Web Services Vietnam** (startup segment) |
-| 5 | **Khang Nguyễn (Ma Hoàng Khang)** | Solution Architect, **Cloud Kinetics**; Swinburne Vietnam alumnus (K3, HCMC) |
+| # | Session | Speaker |
+|---|---------|---------|
+| 1 | **Community Update** — latest activities of the AWS Vietnam community | **Hồ Việt Anh** & **Phong Phạm** |
+| 2 | **OpenClaw — The Rise and Practice of Open-Source AI Agents** | **Tuấn Vũ** |
+| 3 | **From AI Trends to Business Value** | **Nguyễn Thu** & **Nam La** |
+| 4 | **Ship Fast with AI, Not by** | **Henry (Đức) Bùi** |
+| 5 | **Selecting the Right AI Agent Pattern on AWS** | **Dũng Lương** |
 
 ---
 
 ## Session summaries
 
-### Nguyễn Trần Minh Duy — Opening remarks (Swinburne Vietnam)
+### Community Update — Hồ Việt Anh & Phong Phạm
 
-Minh Duy welcomed attendees to the **third consecutive year** (2024, 2025, 2026) of Swinburne Vietnam bringing students to AWS, including the **Cần Thơ campus** cohort in 2026. He explained how Swinburne integrates **AWS Academy** through COS2019, giving students foundational cloud knowledge before hearing real industry use cases. The partnership with **FCAJ** helps graduates stay connected, contribute back, and support juniors after entering the workforce.
-
----
-
-### Nguyễn Gia Hưng — Cloud market, careers & FCAJ expectations
-
-**Job market reality:** Even intern roles now expect strong foundations (Kubernetes, containers, etc.). Referrals and community networks matter as much as public job boards—many positions fill via connections before appearing on LinkedIn.
-
-**Vietnam cloud growth:** AWS revenue in Vietnam grew roughly 20× in six years. Enterprises adopt cloud-first design; talent hubs (HCMC, Hanoi, Da Nang) expand, including global banks building large IT centers in Vietnam. AWS invests in local talent, infrastructure (Local Zones, CDN, future Region), and skills—not a license-only model.
-
-**Career strategy:** Think **role + industry** (e.g. data engineer for banking vs. retail), not role alone. Target one of six major AWS customer industries in Vietnam.
-
-**FCAJ expectations:** Side projects should solve real industry problems. Employers value teamwork, ownership, resilience, and **invest in yourself**—continuous learning visible on your profile, not only certificates.
-
-**AI & demand:** Cheaper software/AI increases total demand (LED analogy). New roles include forward-deployed engineers and teams that productionize AI-generated products. Build visibility early; opportunities compound unpredictably.
+The opening session summarized the latest activities of the AWS Vietnam community: study groups, meetups, and the First Cloud AI Journey program. The organizers encouraged attendees to contribute back to the community—by writing blogs, sharing experiences, and mentoring juniors—so that knowledge keeps flowing beyond each individual internship.
 
 ---
 
-### Bành Cẩm Vĩnh — Data engineering: school vs. industry (Renova Cloud)
+### Tuấn Vũ — OpenClaw: The Rise and Practice of Open-Source AI Agents
 
-Five years as a data engineer across **Siêu Việt Group → Heineken Vietnam → VNG ZaloPay → Renova Cloud → VPBank (ML track)**.
+Tuấn Vũ introduced **OpenClaw**, an emerging open-source AI agent framework, and contrasted it with closed, vendor-managed agents. He walked through practical setup, tool integration, and a live demo of an agent that plans and executes multi-step tasks.
 
-**School vs. work gap:**
-
-| Dimension | University | Enterprise |
-|-----------|------------|------------|
-| Data | Clean, fixed datasets | Messy, multi-source, changing |
-| Requirements | Stable, long deadlines | Shifting, cross-team alignment |
-| Stakes | Grades | Production impact, business outcomes |
-| Depth expected | Read → transform → load → dashboard | Failure handling, data quality, security, ops |
-
-**Foundation courses that matter:** databases, programming, data structures & algorithms, distributed systems, APIs—interview staples across IT roles.
-
-**“One framework for every platform”:** Learn the **DNA** of your domain (ingestion, processing, storage, governance, analytics), then map tools (including AWS services)—skills transfer across companies.
-
-**Career lessons by environment:**
-- **Startup (Siêu Việt):** end-to-end ownership.
-- **Enterprise (Heineken):** translate “active user” differently for Dev, Product, Marketing.
-- **Fintech (ZaloPay):** design for scale, uptime, and growth from day one.
-- **Consulting (Renova):** customer-facing architecture, problem-first thinking.
-
-**Using AI well:** Tools like **Kiro** to review projects against production-style checklists; validate AI output with official docs (MCP to AWS documentation) and architecture frameworks. Every technical role must communicate across departments.
+**Key points:**
+- Open-source agents give teams **transparency and full control** over prompts, tools, and deployment—important for cost and compliance in enterprises.
+- An agent is only as capable as its **tool ecosystem** (web search, code execution, file/DB access), so designing a reliable tool layer matters more than the base model.
+- Community-driven frameworks iterate quickly, but require evaluating **security and maintenance** before production use.
 
 ---
 
-### Như Trần — Soft skills, fear & opportunity (AWS)
+### Nguyễn Thu & Nam La — From AI Trends to Business Value
 
-**Theme:** Become your own kind of “Steve Jobs”—unique strengths, not copying others.
+This session shifted focus from the hype of AI trends to **business value**. The speakers argued that the winning question is not "what can AI do?" but "what business outcome does it unlock and can it be measured?"
 
-**Fears from school carry into work:** Fear of being wrong is often fear of consequences—name and reframe the real fear. Public speaking improves with deliberate practice; lived experience is worth sharing with proper framing.
-
-**Communication at work:**
-- Miscommunication is usually two-sided; align on intent (manager asking “why KPI missed?” wants a recovery plan).
-- **Small talk & visibility:** Greet managers; short check-ins build recognition.
-
-**Opportunity mindset:**
-- Public job posts = crowded “red ocean”; referrals reveal “blue ocean” roles.
-- Personal story: **11 failed Amazon interviews** before success via a mentor introducing her directly to the hiring manager.
-- Plant seeds early (speaking, networking, excellent work)—opportunities grow later.
+**Key points:**
+- Frame AI initiatives around **measurable outcomes** (cost saved, time reduced, revenue enabled) rather than model capability alone.
+- Start from a real, recurring pain point in the company, then choose the simplest tooling that solves it.
+- **Data readiness and change management** are the biggest non-technical blockers to AI adoption.
 
 ---
 
-### Khang Nguyễn — Skills, AI & mindset (Cloud Kinetics / Swinburne alum)
+### Henry (Đức) Bùi — Ship Fast with AI, Not by
 
-Swinburne **K3 graduate (IT major, 4-person cohort)**; **Solution Architect at Cloud Kinetics** (~3 years), involved in hiring.
+Henry emphasized using AI to **accelerate delivery** while keeping engineering judgment—"ship fast with AI, not by (AI blindly)". He advocated using AI for scaffolding, code review support, and tedious refactors, while engineers remain responsible for architecture, quality, and security.
 
-**Curriculum is sound** but **industry moves faster**—university is foundation; outcomes depend on what you build outside class. Internships often report on work already done in industry, not only classroom exercises.
+**Key points:**
+- Use AI as an **accelerator for the boring parts**, reserving human attention for design and correctness.
+- Keep **human-in-the-loop** for anything that touches production or data; never merge AI output to production unverified.
+- Fast shipping still requires **discipline**: tests, review, and rollback paths.
 
-**Small cohort advantage:** Direct access to leadership (e.g. head of school)—harder in large cohorts but more staff available per student.
+---
 
-**AI in hiring exercise:** Given 3 days to build a chatbot, **~90% of submissions used AI but did not understand the code**—a major red flag.
+### Dũng Lương — Selecting the Right AI Agent Pattern on AWS
 
-**Key quote:** *“You can outsource your thinking, but you cannot outsource your understanding.”*
+Dũng Lương presented a decision framework for choosing the right **agent pattern on AWS**, matching complexity to the problem rather than reaching for a full agentic platform every time.
 
-Use AI heavily but **understand outputs**, validate correctness, and know when chatbot vs. agent is appropriate. AI amplifies weak foundation → bigger mistakes; strong foundation → much higher output.
-
-Banks still prioritize **backend/software engineering depth** with AI as a strong plus, not a replacement.
+**Key points:**
+- Understand the spectrum from simple **prompt + tool** calls to **orchestrated multi-agent** systems, and pick the lightest pattern that works.
+- On AWS, consider **Amazon Bedrock** agents, the **MCP ecosystem**, and **Lambda-first** orchestration for cost control and observability.
+- Design for **observability, guardrails, and auditability**—essential when agents are granted tool access.
 
 ---
 
 ## Takeaways
 
-- Cloud opportunity in Vietnam is large, but **barriers to entry are higher**—production-minded projects and industry context matter.
-- Data/cloud roles require business communication, not only technical depth.
-- **Community, referrals, and visibility** are part of the job search.
-- **AI is a multiplier**—understand fundamentals first, then use AI to accelerate delivery and learning.
-- Swinburne + FCAJ + AWS study tours connect classroom learning with how practitioners build and hire.
+- An agent's value comes from its **tool layer and context**, not just the model underneath.
+- Always connect AI to **measurable business outcomes**, not feature checkboxes.
+- **Human-in-the-loop** remains essential for anything touching production or sensitive data.
+- Choose the **simplest agent pattern** that solves the problem, then evolve.
+- The AWS Vietnam community is an open, contributor-driven space worth staying involved with long after the internship.
 
 ## Personal reflection
 
-This study tour bridged university cloud coursework and enterprise reality. The most actionable sessions were Vĩnh’s comparison of academic vs. production data work, Hưng’s industry-based career targeting, and Khang’s warning about using AI without understanding—directly relevant to my capstone and internship deliverables.
+This was the first event I attended at the very start of my internship, and it was a great introduction to how AWS connects with the broader ecosystem in Vietnam. The recurring message—build real products, understand what you ship, and tie AI work to business value—set a clear direction for the cloud engineering mindset I wanted to develop during the program. It also introduced me to the community of builders and mentors I could learn from throughout the internship.

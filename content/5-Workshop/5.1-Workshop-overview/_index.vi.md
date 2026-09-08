@@ -23,7 +23,7 @@ Phần đồng đội làm (Cognito ban đầu, API Gateway, code MatchMaker gia
 
 - Tài khoản AWS quyền admin tại `ap-southeast-1`
 - Game server binary chạy cổng **TCP 9000**
-- Repository GitHub: `Nothingtoread/fighting-game`
+- Repository GitHub: `akaia1603/fighting-game`
 
 ## Tên tài nguyên tham chiếu
 

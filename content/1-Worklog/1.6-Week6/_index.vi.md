@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 6"
-date: 2026-06-09
+date: 2026-08-29
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
@@ -8,25 +8,26 @@ pre: " <b> 1.6. </b> "
 
 ### Mục tiêu tuần 6:
 
-* Bắt đầu dự án tốt nghiệp fighting-game.
-* Prototype mô hình game cơ bản bằng Scratch.
+* Hoàn thành dự án capstone (xử lý sau trận bất đồng bộ, củng cố VPC).
+* Hoàn thành nội dung workshop lab AWS.
 
-**Thời gian:** 09/06/2026 – 15/06/2026
+**Thời gian:** 29/08/2026 – 04/09/2026
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | ------------ | --------------- | -------------- |
-| 2 | - Tham dự kickoff dự án: tổng quan kiến trúc, phân vai, deliverable | 09/06/2026 | 09/06/2026 | Brief dự án FCAJ |
-| 3 | - Xác định yêu cầu game: đối kháng 2 người, matchmaking, triển khai cloud | 10/06/2026 | 10/06/2026 | |
-| 4 | - **Prototype:** Xây game đối kháng cơ bản trên Scratch (di chuyển, tấn công, máu) | 11/06/2026 | 11/06/2026 | Scratch editor |
-| 5 | - Hoàn thiện prototype Scratch: hit detection, điều kiện thắng/thua, luồng UI | 12/06/2026 | 12/06/2026 | |
-| 6 | - Trình bày prototype với team; thống nhất hướng chuyển sang LeopardJS / web client | 13/06/2026 | 13/06/2026 | |
+| 2 | - Triển khai xử lý sau trận bất đồng bộ: DynamoDB Streams → MatchAnalytics Lambda | 31/08/2026 | 31/08/2026 | |
+| 3 | - Chuyển MatchMaker Lambda sang private subnet với VPC endpoints (không NAT); cài CodeDeploy agent trên EC2 fleet | 01/09/2026 | 01/09/2026 | |
+| 4 | - Kiểm thử tích hợp cuối: matchmaking → gameplay → kết thúc trận → analytics | 02/09/2026 | 02/09/2026 | |
+| 5 | - Hoàn thành các phần workshop: S3 VPC endpoints, mô phỏng on-prem, cleanup (ghi lại kèm screenshot, hủy trước khi xóa) | 03/09/2026 | 03/09/2026 | Template workshop FCAJ |
+| 6 | - Hoàn thành deliverable capstone và handoff tài liệu lab workshop cho team | 04/09/2026 | 04/09/2026 | |
 
 ### Kết quả đạt được tuần 6:
 
-* Tham gia dự án capstone fighting-game với vai trò thành viên tích cực.
-* Xây prototype Scratch chơi được: di chuyển, tấn công, nhận sát thương, thắng ván.
-* Xác nhận cơ chế game trước khi đầu tư hạ tầng cloud và netcode.
-* Thống nhất phạm vi dự án: browser client, EC2 game server, Lambda matchmaking.
-* Chuẩn bị nền tảng chuyển prototype sang stack web production ở Tuần 7.
+* Triển khai pipeline **Flow E**: DynamoDB Stream `ActiveMatches` → Lambda `FightingGameMatchAnalytics` → bảng `MatchAnalytics`.
+* Cấu hình lại MatchMaker trong private subnet với DynamoDB gateway và EC2/CloudWatch interface endpoints.
+* Cài và cấu hình CodeDeploy agent trên game server instance.
+* Xác minh vòng đời game đầy đủ: login → hàng đợi → trận → WebSocket gameplay → ghi nhận trận kết thúc trong DynamoDB.
+* Hoàn thành toàn bộ bài lab workshop gồm VPC Gateway endpoints, PrivateLink interface endpoints và mô phỏng DNS.
+* Ghi lại screenshot teardown (chỉ màn hình xác nhận, không xóa thật).

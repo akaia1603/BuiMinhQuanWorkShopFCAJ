@@ -20,11 +20,11 @@ My mentor provided clear guidance on architecture decisions, reviewed progress r
 
 **3. Relevance of work to academic major**
 
-The capstone fighting-game backend aligned well with my **Computer Networks / Information Technology** studies while extending into areas not fully covered in coursework — serverless design, Spot fleet management, GitOps, and VPC endpoint networking. The work bridged university theory with production-style AWS practice.
+The capstone fighting-game backend aligned well with my **Computer Science** studies while extending into areas not fully covered in coursework — serverless design, Spot fleet management, GitOps, and VPC endpoint networking. The work bridged university theory with production-style AWS practice.
 
 **4. Learning & skill development opportunities**
 
-Beyond the capstone, I gained practical skills through **FCAJ Community Day** events, workshop labs, Hugo report publishing, and hands-on troubleshooting of CI/CD pipelines. These experiences improved both technical depth and professional reporting habits.
+Beyond the capstone, I gained practical skills through the **AWS Vietnam Community Meetup** in Hanoi, workshop labs, Hugo report publishing, and hands-on troubleshooting of CI/CD pipelines. These experiences improved both technical depth and professional reporting habits.
 
 **5. Company culture & team spirit**
 
@@ -32,7 +32,7 @@ The program culture emphasizes learning in public, sharing knowledge at communit
 
 **6. Internship policies / benefits**
 
-The structured 12-week timeline, clear deliverables (worklog, proposal, workshop, report), and access to AWS learning resources provided a well-defined internship path. Internal sessions and community events were valuable complements to self-directed project work.
+The structured 7-week timeline, clear deliverables (worklog, proposal, workshop, report), and access to AWS learning resources provided a well-defined internship path. Internal sessions and community events were valuable complements to self-directed project work.
 
 ---
 
@@ -48,7 +48,7 @@ The structured 12-week timeline, clear deliverables (worklog, proposal, workshop
 
 ### Suggestions & expectations
 
-I suggest maintaining the balance between self-paced lab work and cohort check-ins, and continuing Community Day events that connect interns with industry practitioners.
+I suggest maintaining the balance between self-paced lab work and cohort check-ins, and continuing community meetups that connect interns with industry practitioners.
 
 I would be interested in staying connected with the FCAJ / AWS study community after the program.
 

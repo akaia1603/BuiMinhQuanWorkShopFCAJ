@@ -1,6 +1,6 @@
 ---
 title: "Proposal"
-date: 2026-05-01
+date: 2026-07-25
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -101,13 +101,13 @@ The architecture is divided into four distinct execution flows, each featuring i
 
 #### Implementation Phases
 
-1. **Phase 1: Architecture & Security Boundary Definition (Month 1)**  
+1. **Phase 1: Architecture & Security Boundary Definition (Week 1)**  
    Design VPC subnets, route tables, IAM roles, security group automation, and KMS keys.
-2. **Phase 2: Core Serverless Metagame & Auth Setup (Month 1-2)**  
+2. **Phase 2: Core Serverless Metagame & Auth Setup (Week 2-3)**  
    Implement Cognito User/Identity Pools, S3 asset bucket policies, API Gateway, and DynamoDB single-table schema.
-3. **Phase 3: Matchmaker & EC2 Spot Automation (Month 2)**  
+3. **Phase 3: Matchmaker & EC2 Spot Automation (Week 4)**  
    Develop Matchmaker Lambda in private subnets, configure ASG Launch Templates with Graviton ARM64, and create User Data boot scripts.
-4. **Phase 4: GitOps CI/CD & Asynchronous Analytics (Month 3)**  
+4. **Phase 4: GitOps CI/CD & Asynchronous Analytics (Week 5-6)**  
    Set up GitHub Actions workflows, CodeDeploy Blue/Green deployment hooks, DynamoDB Streams for post-match processing, and conduct load testing.
 
 #### Technical Requirements
@@ -120,9 +120,9 @@ The architecture is divided into four distinct execution flows, each featuring i
 
 ### 5. Timeline & Milestones
 
-- **Month 1**: System architecture design, VPC/Network topology setup, and IAM security boundaries.
-- **Month 2**: Serverless matchmaking development, Cognito integration, and EC2 Spot ASG automation.
-- **Month 3**: GitOps pipeline implementation, load & stress testing, performance tuning, and final deployment.
+- **Week 1-2**: System architecture design, VPC/Network topology setup, and IAM security boundaries.
+- **Week 3-4**: Serverless matchmaking development, Cognito integration, and EC2 Spot ASG automation.
+- **Week 5-7**: GitOps pipeline implementation, load & stress testing, performance tuning, and final deployment.
 
 ---
 

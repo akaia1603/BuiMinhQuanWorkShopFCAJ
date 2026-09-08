@@ -11,23 +11,19 @@ chapter: false
 
 ### Student Information:
 
-&emsp; **Full Name:** Lê Thành Nhơn
+&emsp; **Full Name:** Bùi Minh Quân
 
-&emsp; **Phone Number:** 0947885831
+&emsp; **Phone Number:** 0839130090
 
-&emsp; **Email:** nhon30041975@gmail.com
+&emsp; **Email:** bmq1603@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Hanoi University of Civil Engineering (HUCE)
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Computer Science
 
-&emsp; **Class:** 22DTHE4
+&emsp; **Class:** 68CNCS
 
-&emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
-
-&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
-
-&emsp; **Internship Duration:** From 05/05/2025 to 30/07/2025
+&emsp; **Internship Duration:** From 25/07/2026 to 08/09/2026
 
 ![Profile picture](/images/avatar.jpg)
 

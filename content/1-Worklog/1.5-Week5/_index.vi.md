@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 5"
-date: 2026-06-02
+date: 2026-08-22
 weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
@@ -8,25 +8,27 @@ pre: " <b> 1.5. </b> "
 
 ### Mục tiêu tuần 5:
 
-* Học các dịch vụ giám sát và quan sát hệ thống trên AWS.
-* Quản lý tài nguyên AWS bằng AWS CLI (tạo, sửa, xóa).
+* Handoff client kèm luồng login cho team và triển khai CI/CD bằng GitHub Actions.
+* Triển khai IAM Permission Boundaries và kiểm tra khả năng deploy của CodeDeploy.
 
-**Thời gian:** 02/06/2026 – 08/06/2026
+**Thời gian:** 22/08/2026 – 28/08/2026
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | ------------ | --------------- | -------------- |
-| 2 | - Học CloudWatch: metrics, alarm, logs, dashboard | 02/06/2026 | 02/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Lab:** Tạo CloudWatch alarm cho CPU utilization của EC2 | 03/06/2026 | 03/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - Cài đặt và cấu hình AWS CLI (access key, secret key, region mặc định) | 04/06/2026 | 04/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Thực hành:** Tạo, liệt kê, sửa và xóa EC2 instance qua CLI | 05/06/2026 | 05/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 6 | - **Thực hành:** Quản lý S3 bucket và bảng DynamoDB qua CLI <br> - Thiết lập CloudWatch dashboard cơ bản | 06/06/2026 | 06/06/2026 | |
+| 2 | - Hoàn thiện UI login client và xử lý session; handoff codebase kèm tài liệu interface auth + netcode | 24/08/2026 | 24/08/2026 | |
+| 3 | - Thiết lập cấu trúc repository GitHub và tạo workflow GitHub Actions ban đầu cho build và deploy <br> - Cấu hình S3 static website hosting cho browser client và kiểm thử deploy tự động đầu tiên | 25/08/2026 | 25/08/2026 | Tài liệu GitHub Actions |
+| 4 | - Học IAM Permission Boundaries và mô hình deploy least-privilege <br> - Đăng ký GitHub OIDC identity provider trong IAM (không dùng access key cố định) | 26/08/2026 | 26/08/2026 | Tài liệu AWS IAM |
+| 5 | - Tạo deploy role với trust policy giới hạn theo repo GitHub; gắn permissions <br> - Cấu hình repository secrets (`AWS_ROLE_ARN`, `COGNITO_*`, `ASSETS_BUCKET`, v.v.) | 27/08/2026 | 27/08/2026 | |
+| 6 | - **Kiểm thử:** Push lên GitHub → xác minh S3 sync, Lambda update và CodeDeploy thành công | 28/08/2026 | 28/08/2026 | |
 
 ### Kết quả đạt được tuần 5:
 
-* Cài đặt và cấu hình AWS CLI với credential và region mặc định `ap-southeast-1`.
-* Thực hiện thao tác CRUD đầy đủ trên EC2, S3 và DynamoDB từ dòng lệnh.
-* Tạo CloudWatch alarm và dashboard để giám sát tài nguyên đang chạy.
-* Hiểu mối quan hệ giữa metrics, logs và alarm trong vận hành hệ thống.
-* Thành thạo CLI — nền tảng cho tự động hóa và CI/CD ở các tuần sau.
+* Bàn giao gói client hoạt động với luồng login và stub netcode cho team.
+* Tạo repository dự án, thiết lập quy ước nhánh và triển khai workflow GitHub Actions đầu tiên.
+* Tạo S3 assets bucket với static website hosting, bucket policy public-read và CORS.
+* Loại bỏ AWS access key tĩnh khỏi CI bằng GitHub OIDC → IAM role.
+* Áp dụng IAM Permission Boundaries để giới hạn quyền deploy role.
+* Cấu hình `FightingGameServerInstanceRole` và quyền MatchMaker Lambda (DynamoDB, EC2 `DescribeInstances`).
+* Xác minh pipeline deploy end-to-end: push GitHub → Actions → S3 client sync + CodeDeploy.

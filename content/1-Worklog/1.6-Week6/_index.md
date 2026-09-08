@@ -1,6 +1,6 @@
 ---
 title: "Week 6 Worklog"
-date: 2026-06-09
+date: 2026-08-29
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
@@ -8,25 +8,26 @@ pre: " <b> 1.6. </b> "
 
 ### Week 6 Objectives:
 
-* Begin the capstone fighting-game project.
-* Prototype the basic game model and mechanics using Scratch.
+* Complete the capstone project (async post-match processing, VPC hardening).
+* Complete the AWS workshop lab content.
 
-**Period:** 09/06/2026 – 15/06/2026
+**Period:** 29/08/2026 – 04/09/2026
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | ---------- | --------------- | ------------------ |
-| 2 | - Attend project kickoff: architecture overview, team roles, deliverables | 09/06/2026 | 09/06/2026 | FCAJ project brief |
-| 3 | - Define game requirements: 2-player fighting, matchmaking, cloud deployment | 10/06/2026 | 10/06/2026 | |
-| 4 | - **Prototype:** Build basic fighting game in Scratch (movement, attacks, health) | 11/06/2026 | 11/06/2026 | Scratch editor |
-| 5 | - Iterate on Scratch prototype: hit detection, win/lose conditions, UI flow | 12/06/2026 | 12/06/2026 | |
-| 6 | - Present prototype to team; agree on migration path to LeopardJS / web client | 13/06/2026 | 13/06/2026 | |
+| 2 | - Implement async post-match processing: DynamoDB Streams → MatchAnalytics Lambda | 31/08/2026 | 31/08/2026 | |
+| 3 | - Move MatchMaker Lambda to private subnets with VPC endpoints (no NAT); install CodeDeploy agent on the EC2 fleet | 01/09/2026 | 01/09/2026 | |
+| 4 | - Final integration testing: matchmaking → gameplay → match finish → analytics | 02/09/2026 | 02/09/2026 | |
+| 5 | - Complete workshop sections: S3 VPC endpoints, on-prem simulation, cleanup (documented with screenshots, cancel before delete) | 03/09/2026 | 03/09/2026 | FCAJ workshop template |
+| 6 | - Complete capstone deliverables and hand off workshop lab documentation to the team | 04/09/2026 | 04/09/2026 | |
 
 ### Week 6 Achievements:
 
-* Joined the fighting-game capstone project as an active team member.
-* Built a playable Scratch prototype demonstrating core game loop: move, attack, take damage, win.
-* Validated game mechanics before investing in cloud infrastructure and netcode.
-* Aligned with teammates on project scope: browser client, EC2 game servers, Lambda matchmaking.
-* Established the foundation for transitioning the prototype to a production web stack in Week 7.
+* Deployed the **Flow E** async pipeline: `ActiveMatches` DynamoDB Stream → `FightingGameMatchAnalytics` Lambda → `MatchAnalytics` table.
+* Reconfigured the MatchMaker into private subnets with DynamoDB gateway and EC2/CloudWatch interface endpoints.
+* Installed and configured the CodeDeploy agent on game server instances.
+* Verified the full game lifecycle: login → queue → match → WebSocket gameplay → finished match recorded in DynamoDB.
+* Completed all workshop lab write-ups including VPC Gateway endpoints, PrivateLink interface endpoints, and DNS simulation.
+* Documented teardown screenshots (confirmation screens only, no actual deletion).

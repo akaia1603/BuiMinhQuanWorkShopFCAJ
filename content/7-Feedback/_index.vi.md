@@ -20,11 +20,11 @@ Mentor hướng dẫn rõ ràng về quyết định kiến trúc, theo dõi ti�
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**
 
-Dự án capstone fighting-game phù hợp với ngành **Mạng Máy Tính / Công Nghệ Thông Tin**, đồng thời mở rộng sang serverless, quản lý fleet Spot, GitOps và VPC endpoints — những mảng chưa được đào sâu tại trường. Công việc kết nối lý thuyết với thực hành AWS.
+Dự án capstone fighting-game phù hợp với ngành **Khoa học Máy tính**, đồng thời mở rộng sang serverless, quản lý fleet Spot, GitOps và VPC endpoints — những mảng chưa được đào sâu tại trường. Công việc kết nối lý thuyết với thực hành AWS.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**
 
-Ngoài capstone, em học thêm qua **FCAJ Community Day**, workshop lab, xuất bản báo cáo Hugo và xử lý sự cố CI/CD. Các trải nghiệm này nâng cao cả chiều sâu kỹ thuật lẫn kỹ năng viết báo cáo.
+Ngoài capstone, em học thêm qua **AWS Vietnam Community Meetup** tại Hà Nội, workshop lab, xuất bản báo cáo Hugo và xử lý sự cố CI/CD. Các trải nghiệm này nâng cao cả chiều sâu kỹ thuật lẫn kỹ năng viết báo cáo.
 
 **5. Văn hóa & tinh thần đồng đội**
 
@@ -32,7 +32,7 @@ Văn hóa chương trình nhấn mạnh học hỏi công khai, chia sẻ tại 
 
 **6. Chính sách / phúc lợi cho thực tập sinh**
 
-Lộ trình 12 tuần rõ ràng, deliverable cụ thể (worklog, proposal, workshop, báo cáo) và tài nguyên học AWS tạo khung thực tập ổn định. Các buổi nội bộ và sự kiện cộng đồng bổ trợ tốt cho tự học dự án.
+Lộ trình 7 tuần rõ ràng, deliverable cụ thể (worklog, proposal, workshop, báo cáo) và tài nguyên học AWS tạo khung thực tập ổn định. Các buổi nội bộ và sự kiện cộng đồng bổ trợ tốt cho tự học dự án.
 
 ---
 
@@ -48,7 +48,7 @@ Lộ trình 12 tuần rõ ràng, deliverable cụ thể (worklog, proposal, work
 
 ### Đề xuất & mong muốn
 
-Em đề xuất duy trì cân bằng giữa tự học lab và check-in cohort, đồng thời tiếp tục Community Day kết nối thực tập sinh với chuyên gia ngành.
+Em đề xuất duy trì cân bằng giữa tự học lab và check-in cohort, đồng thời tiếp tục các buổi meetup cộng đồng kết nối thực tập sinh với chuyên gia ngành.
 
 Em mong muốn tiếp tục kết nối với cộng đồng FCAJ / AWS study sau chương trình.
 
