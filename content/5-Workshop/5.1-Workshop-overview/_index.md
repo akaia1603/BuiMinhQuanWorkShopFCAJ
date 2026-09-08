@@ -1,6 +1,6 @@
 ---
 title: "Workshop overview"
-date: 2024-01-01
+date: 2026-09-01
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
@@ -8,50 +8,56 @@ pre: " <b> 5.1. </b> "
 
 ## Purpose
 
-This workshop documents the AWS implementation steps for a **live-service fighting game backend**: players authenticate via Cognito, matchmake through API Gateway + Lambda, connect to **EC2 Spot** game servers on port **9000**, and trigger **async analytics** when matches finish.
+This section documents every AWS practice performed during the FCAJ internship in sequence: environment preparation, cost monitoring, foundational serverless and network workshops, then the main project — **Task Manager API**, a complete Java Spring Boot backend on **EC2 + RDS** that integrates **Amazon Comprehend** AI to suggest task priority automatically (fulfils CLO3).
 
-The architecture follows the proposal flows:
+Each page records the exact AWS Console steps and marks `[Screenshot]` at every point where a screenshot is required as evidence for the internship report.
 
-| Flow | Components | My workshop coverage |
-|------|------------|---------------------|
-| **A** | Cognito, S3 assets | S3 static hosting (client bundle) |
-| **R** | API GW, MatchMaker Lambda, DynamoDB, EC2 ASG | Fleet, IAM, VPC private Lambda |
-| **C** | GitHub Actions, CodeDeploy | OIDC, Lambda + EC2 deploy |
-| **E** | DynamoDB Streams, MatchAnalytics Lambda | Async processing setup |
+## Architecture (main project)
 
-Teammate-owned items (initial Cognito, API Gateway wiring, first MatchMaker Lambda code) are out of scope here.
+| Component | Technology / Service |
+|-----------|----------------------|
+| Frontend | Static HTML/CSS/JS on S3 + CloudFront |
+| Backend | Java 17, Spring Boot 3.3 (Spring Security, Spring Data JPA) on EC2 |
+| Database | MySQL 8.0 on Amazon RDS (private subnet) |
+| AI | Amazon Comprehend — DetectSentiment, DetectKeyPhrases |
+| Auth | JWT, BCrypt password encoding |
+| Packaging | Maven, Docker, Docker Compose |
+| Infra | EC2, RDS, VPC, S3, CloudFront, IAM Role |
+
+> **[Screenshot — insert later]:** overall architecture diagram (user → CloudFront/S3 → EC2 Spring Boot → RDS MySQL; EC2 → Amazon Comprehend via IAM Role).
 
 ## Prerequisites
 
-- AWS account with admin access in `ap-southeast-1`
-- A working game server binary listening on **TCP 9000**
-- GitHub repository: `akaia1603/fighting-game`
-- AWS CLI configured locally (optional, for verification)
+- AWS account with admin access (or an IAM user able to manage S3, CloudFront, Lambda, API Gateway, DynamoDB, VPC, EC2, RDS, Comprehend, Budgets, CloudWatch, IAM)
+- Web browser (Chrome / Firefox / Edge)
+- API testing tool: Postman or curl
+- Local JDK 17, Maven, Docker (to build/test before deploying)
 
-## Resource naming reference
+## Region
 
-| Resource | Name / pattern |
-|----------|----------------|
-| EC2 tag | `Role=FightingGameServer` |
-| S3 bucket | `fighting-game-assets-508768431157` |
-| ASG | `FightingGameServerASG` |
-| CodeDeploy (EC2) | `FightingGameServerDeploy` / `FightingGameServer-fleet` |
-| CodeDeploy (Lambda) | `FightingGameMatchmakerDeploy` |
-| DynamoDB | `MatchmakingQueue`, `ActiveMatches`, `MatchAnalytics` |
-| Lambda | `FightingGameMatchmaker`, `FightingGameMatchAnalytics` |
-| Instance profile | `FightingGameServerInstanceRole` |
+All services are deployed in **`ap-southeast-1`** (Singapore) — everything stays in a single region to avoid cross-region connection issues. Billing alarms must be created in **`us-east-1`** (see [5.3](5.3-Cost-Monitoring/)).
 
 ## Workshop order
 
-Complete sections **5.2 → 5.8** in sequence—later steps depend on earlier IAM, fleet, and networking. Section **5.9** demonstrates the live game client. Section **5.10** is a screenshot-based teardown guide for the internship report (cancel before confirming deletes).
+Complete **5.2 → 5.11** in sequence; later pages depend on the VPC, EC2 and RDS resources from earlier pages. **5.12** documents the teardown.
+
+## Skills & tools
+
+- RESTful API design and implementation
+- JWT authentication + Spring Security
+- Relational database design + ORM (Spring Data JPA / Hibernate)
+- AWS deployment (EC2, RDS) with safe networking (VPC, Security Groups, private subnet for the database)
+- AI integration via IAM Role (no hardcoded credentials)
+- Docker / Docker Compose packaging
+- Cost monitoring (Budgets, CloudWatch)
+- API testing with Postman / curl
 
 ## Verification checklist
 
-After all sections:
-
-- [ ] ASG warm pool has healthy instances tagged `Role=FightingGameServer`
-- [ ] S3 website URL loads the browser client
-- [ ] GitHub Actions deploy succeeds via OIDC (no static AWS keys)
-- [ ] CodeDeploy jobs complete for both Lambda and EC2
-- [ ] Finished matches appear in `MatchAnalytics` via stream processing
-- [ ] MatchMaker Lambda runs in private subnets with VPC endpoints (no NAT)
+- [ ] Budget `FCAJ-Budget` and Billing Alarm active (alerts at 50% / 80%)
+- [ ] Static site reachable via the CloudFront URL with HTTPS
+- [ ] Serverless API GET/POST `/notes` works against DynamoDB
+- [ ] VPC 2-tier with public/private subnets and SSH access to EC2
+- [ ] RDS private; EC2 connects to MySQL on port 3306 via Security Group
+- [ ] Task creation returns `priority` + `aiKeyPhrases` from Amazon Comprehend
+- [ ] All resources cleaned up after the report is delivered

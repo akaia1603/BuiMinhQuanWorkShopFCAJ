@@ -1,29 +1,29 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-09-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Fighting Game AWS Backend — Implementation Workshop
+# AWS Cloud Workshop — Hands-on Practice
 
-![Workshop screenshots](/images/5-Workshop/image1.png)
+This section records all hands-on work implemented during the internship, from environment preparation and foundational workshops to the main project — **Task Manager API integrated with AI**. Every page lists the exact AWS Console steps and marks `[Screenshot]` where a screenshot is required as evidence for the internship report.
 
-Hands-on steps for the **serverless + EC2 Spot** multiplayer game backend documented in my internship proposal. This section covers the infrastructure and CI/CD work I was responsible for on the [fighting-game](https://github.com/akaia1603/fighting-game) project.
-
-**Region:** `ap-southeast-1`  
-**Scope:** EC2 warm pool fleet, S3 static client hosting, IAM, GitHub OIDC, CodeDeploy (Lambda + EC2), async match analytics, private MatchMaker VPC, live game demo, and documented teardown.
+**Region:** `ap-southeast-1` (Asia Pacific — Singapore)  
+**Cost control:** AWS Budgets + CloudWatch Billing Alarm (Free Tier)
 
 #### Contents
 
 1. [Workshop overview](5.1-Workshop-overview/)
-2. [EC2 game server fleet & warm pool](5.2-EC2-Fleet/)
-3. [S3 static client hosting](5.3-S3-Hosting/)
-4. [IAM roles & policies](5.4-IAM/)
-5. [GitHub OIDC → AWS (CI authentication)](5.5-GitHub-OIDC/)
-6. [CodeDeploy — Lambda & EC2 CI/CD](5.6-CodeDeploy/)
-7. [Async post-match processing](5.7-Async-Processing/)
-8. [VPC — private MatchMaker (no NAT)](5.8-VPC-MatchMaker/)
-9. [Game demo](5.9-Game-Demo/)
-10. [Resource cleanup (documented)](5.10-Cleanup/)
+2. [Environment setup & Region](5.2-Environment-Setup/)
+3. [Cost monitoring — Budgets & CloudWatch](5.3-Cost-Monitoring/)
+4. [Static website — S3 + CloudFront](5.4-S3-CloudFront/)
+5. [Serverless API — Lambda + API Gateway + DynamoDB](5.5-Serverless-API/)
+6. [VPC 2-tier network design](5.6-VPC-2Tier/)
+7. [Task Manager API — overview, tech stack & database](5.7-TaskManager-Overview/)
+8. [Task Manager — RDS MySQL setup](5.8-TaskManager-RDS/)
+9. [Task Manager — EC2 & backend deployment](5.9-TaskManager-EC2/)
+10. [Task Manager — Amazon Comprehend AI integration](5.10-TaskManager-AI/)
+11. [Task Manager — frontend & end-to-end testing](5.11-TaskManager-Frontend/)
+12. [Resource cleanup](5.12-Cleanup/)
