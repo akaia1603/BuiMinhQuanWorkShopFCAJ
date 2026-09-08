@@ -6,17 +6,17 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# Kiến trúc Backend Serverless & Spot Instance cho Game Live-Service trên AWS
+# Task Manager API — Backend Full-Stack tích hợp AI trên AWS
 
-## Hạ tầng Cloud hiệu năng cao, mở rộng linh hoạt và tối ưu chi phí cho game multiplayer
+## Ứng dụng Java Spring Boot hoàn chỉnh trên EC2 + RDS với Amazon Comprehend
 
 ---
 
 ### 1. Tóm tắt điều hành
 
-Dự án trình bày kiến trúc backend cloud-native cho game multiplayer live-service trên Amazon Web Services (AWS). Thay vì duy trì fleet server chạy 24/7 bất kể nhu cầu người chơi, kiến trúc này cấp phát tài nguyên tính toán **chỉ khi thực sự cần**: xác thực, matchmaking và phiên chơi trực tiếp.
+Bản đề xuất này mô tả nội dung thực hành trọng tâm của đợt thực tập: xây dựng và triển khai backend REST hoàn chỉnh tên là **Task Manager API** trên AWS. Hệ thống cho phép người dùng đăng ký/đăng nhập, quản lý dự án và công việc, đồng thời dùng **Amazon Comprehend** (AI) để tự động phân tích mỗi mô tả task và gợi ý mức độ ưu tiên.
 
-Các thành phần metagame—xác thực, phân phối asset, matchmaking và phân tích sau trận—vận hành hoàn toàn trên kiến trúc **Serverless**. Phiên game server chạy trên **EC2 Spot Fleet** trong VPC riêng biệt, được khởi tạo động bởi dịch vụ Matchmaker. Triển khai tuân thủ **GitOps** qua GitHub Actions và AWS CodeDeploy.
+Chương trình còn gồm chuỗi workshop nền tảng trong cùng Region (`ap-southeast-1`): giám sát chi phí (Budgets + CloudWatch), website tĩnh (S3 + CloudFront), serverless notes API (Lambda + API Gateway + DynamoDB) và thiết kế VPC 2-tier. Các workshop này xây dựng kỹ năng nền tảng cho dự án chính.
 
 ---
 
@@ -24,66 +24,87 @@ Các thành phần metagame—xác thực, phân phối asset, matchmaking và p
 
 #### Vấn đề là gì?
 
-Kiến trúc game server truyền thống dùng fleet EC2 chạy liên tục 24/7, gây lãng phí chi phí khi ít người chơi. Deploy thủ công có rủi ro gián đoạn trận đấu, thời gian triển khai dài và rollback phức tạp. Mở port server ra internet cũng tăng rủi ro bảo mật và DDoS.
+Các nhóm nhỏ thường quản lý công việc bằng Excel hoặc công cụ nặng nề khó tùy chỉnh. Chưa có backend tự xây dựng vừa (1) quản lý dự án/công việc kèm xác thực chuẩn chỉnh, vừa (2) minh họa cách nhúng dịch vụ AI vào ứng dụng thông thường mà không hardcode credentials.
 
 #### Giải pháp
 
-Nguyên tắc thiết kế: **Serverless cho mọi thứ trừ phiên chơi trực tiếp**.
+Hệ thống full-stack triển khai trên AWS:
 
-- Metagame (Auth, tải asset, Matchmaking, Analytics) dùng Cognito, API Gateway, Lambda, DynamoDB.
-- Phiên chơi chạy trên EC2 Spot (Graviton ARM64) trong VPC public/private.
-- Security Group động do Matchmaker Lambda quản lý, chỉ mở port khi có trận.
-- CI/CD tự động qua GitHub Actions và CodeDeploy.
+- **Frontend:** HTML/CSS/JS thuần host trên S3 + CloudFront (HTTPS).
+- **Backend:** Java 17 + Spring Boot 3.3 (Spring Security JWT, Spring Data JPA) trên EC2.
+- **Database:** MySQL 8.0 trên Amazon RDS trong private subnet.
+- **AI:** Amazon Comprehend (DetectSentiment, DetectKeyPhrases) gọi qua IAM Role gắn với EC2 — không hardcode Access Key (đáp ứng CLO3).
+- **Mạng:** VPC 2-tier (public subnet cho EC2, private subnet cho RDS).
 
-#### Lợi ích và ROI
+#### Lợi ích
 
-- **Giảm đến 80% chi phí** nhờ Spot + Graviton, chỉ chạy compute khi có trận.
-- **Không phí NAT/Egress** nhờ VPC Endpoints cho Lambda private subnet.
-- **Deploy zero-downtime** với CodeDeploy Blue/Green và rollback tự động.
-- **Bảo mật cao** với IAM credential tạm thời và Security Group động.
+- **Triển khai full-stack thực tế:** mọi tầng của ứng dụng hiện đại được triển khai trên AWS an toàn.
+- **Tích hợp AI an toàn:** IAM ít quyền nhất thay vì key tĩnh.
+- **Kiểm soát chi phí:** AWS Budgets + CloudWatch billing alarm giữ mọi thứ trong Free Tier.
+- **Tái lập được:** đóng gói Maven + Docker, cấu hình qua biến môi trường (`app.env`).
 
 ---
 
 ### 3. Kiến trúc giải pháp
 
-![Live-Service Game Backend Architecture](/images/2-Proposal/architecture.png)
+Kiến trúc theo mô hình 3 tầng chuẩn trong một VPC:
 
-#### Các luồng kiến trúc
+- **Tầng client:** frontend tĩnh trên S3, phục vụ qua CloudFront bằng HTTPS.
+- **Tầng ứng dụng:** EC2 (public subnet) chạy REST API Spring Boot cổng 8080.
+- **Tầng dữ liệu:** RDS MySQL (private subnet), chỉ kết nối được từ Security Group của EC2 cổng 3306.
+- **AI service:** Amazon Comprehend được EC2 gọi qua instance IAM Role.
 
-- **Flow C – GitOps CI/CD:** GitHub Actions build artifact → CodeDeploy cập nhật Lambda alias và EC2 ASG → sync client lên S3.
-- **Flow A – Auth & Asset:** Cognito User Pool → Identity Pool → tải asset từ S3 bằng IAM credential tạm thời.
-- **Flow R – Matchmaking:** API Gateway + WAF → Matchmaker Lambda (private subnet) → DynamoDB + EC2 warm pool → client kết nối WebSocket tới game server.
-- **Flow E – Analytics:** DynamoDB Streams → Lambda xử lý bất đồng bộ → bảng analytics sau trận.
+Các workshop serverless tái sử dụng khái niệm mạng tương tự: notes API dùng API Gateway + Lambda + DynamoDB, website tĩnh dùng S3 + CloudFront — chung Region và chung cơ chế giám sát chi phí.
 
 #### Dịch vụ AWS sử dụng
 
-Cognito, WAF, CloudFront, API Gateway, Lambda, DynamoDB, EC2 Spot, CodeDeploy, S3, KMS, VPC Endpoints.
+- **Amazon S3 + CloudFront:** hosting frontend tĩnh qua HTTPS
+- **AWS Lambda + API Gateway + DynamoDB:** workshop serverless notes API
+- **Amazon VPC, EC2, RDS:** mạng 2 tầng và runtime của dự án chính
+- **IAM:** role/policy gồm instance role cấp quyền đọc Comprehend cho EC2
+- **Amazon Comprehend:** phân tích sentiment và trích xuất từ khóa cho mức ưu tiên task
+- **AWS Budgets + CloudWatch:** giám sát chi phí và billing alarm
 
 ---
 
 ### 4. Triển khai kỹ thuật
 
-1. **Tuần 1:** Thiết kế VPC, IAM, security group, KMS.
-2. **Tuần 2–3:** Cognito, S3, API Gateway, DynamoDB schema.
-3. **Tuần 4:** Matchmaker Lambda, ASG Spot, launch template Graviton.
-4. **Tuần 5–6:** GitHub Actions, CodeDeploy, DynamoDB Streams, load test.
+#### Các giai đoạn triển khai
+
+1. **Giai đoạn 1: Môi trường & kiểm soát chi phí (Tuần 1–3)**  
+   Tạo tài khoản AWS, chọn Region (`ap-southeast-1`), AWS Budgets + CloudWatch billing alarm.
+2. **Giai đoạn 2: Workshop nền tảng (Tuần 4)**  
+   Website tĩnh (S3 + CloudFront), serverless notes API (Lambda + API Gateway + DynamoDB).
+3. **Giai đoạn 3: VPC 2-tier & dự án chính (Tuần 5)**  
+   VPC/Subnet/IAM, RDS MySQL, backend Spring Boot trên EC2.
+4. **Giai đoạn 4: Tích hợp AI & bàn giao (Tuần 6–7)**  
+   Comprehend qua IAM Role, frontend + kiểm thử end-to-end, dọn dẹp, báo cáo.
+
+#### Yêu cầu kỹ thuật
+
+- **Backend:** Java 17, Spring Boot 3.3, Spring Security (JWT), Spring Data JPA
+- **Build:** Maven (`mvn clean package -DskipTests`), Docker để đóng gói
+- **Hạ tầng:** EC2 (Amazon Linux 2023, t2.micro), RDS MySQL `db.t3.micro`, VPC 2-tier, Security Group ít quyền nhất
+- **AI:** AWS SDK for Java gọi DetectSentiment / DetectKeyPhrases
+- **Bảo mật:** JWT + BCrypt, database private, phân quyền qua IAM Role (không key tĩnh)
 
 ---
 
 ### 5. Timeline & Milestone
 
-- **Tuần 1–2:** Thiết kế kiến trúc và network.
-- **Tuần 3–4:** Matchmaking serverless và EC2 Spot automation.
-- **Tuần 5–7:** GitOps pipeline, kiểm thử và triển khai.
+- **Tuần 1–3:** AWS cơ bản, bảo mật tài khoản, lưu trữ/CLI, giám sát chi phí.
+- **Tuần 4:** Workshop S3 + CloudFront và serverless notes API.
+- **Tuần 5:** VPC 2-tier, RDS, backend Spring Boot deploy trên EC2.
+- **Tuần 6:** Tích hợp AI Comprehend, frontend, kiểm thử end-to-end.
+- **Tuần 7:** Dọn dẹp tài nguyên và nộp báo cáo cuối cùng.
 
 ---
 
 ### 6. Ước tính ngân sách
 
-- EC2 chỉ chạy khi có trận; Lambda/DynamoDB on-demand chi phí thấp.
-- Spot + Graviton giảm 70–90% so với On-Demand.
-- VPC Endpoints loại bỏ phí NAT Gateway.
-- Binary game pull từ S3 lúc boot, không cần rebake AMI thường xuyên.
+- **Ưu tiên Free Tier:** `t2.micro` / `db.t3.micro` và serverless on-demand nằm trong giới hạn miễn phí của AWS.
+- **Giám sát chủ động:** AWS Budgets (`FCAJ-Budget`, 5 USD/tháng) cảnh báo 50%/80% cộng CloudWatch billing alarm.
+- **Kỷ luật dọn dẹp:** teardown có tài liệu ngay sau khi nộp báo cáo.
 
 ---
 
@@ -91,14 +112,16 @@ Cognito, WAF, CloudFront, API Gateway, Lambda, DynamoDB, EC2 Spot, CodeDeploy, S
 
 | Rủi ro | Tác động | Xác suất | Giảm thiểu |
 | --- | --- | --- | --- |
-| Spot bị thu hồi | Trung bình | Thấp | Warm pool + multi-AZ Spot |
-| Deploy thất bại | Cao | Thấp | CodeDeploy canary + rollback |
-| Truy cập trái phép | Cao | Thấp | JWT + Security Group theo IP người chơi |
+| RDS không kết nối được từ EC2 | Cao | Trung bình | Chỉ mở inbound 3306 với source là Security Group của EC2 |
+| Chi phí vượt ngưỡng | Trung bình | Thấp | Budget + billing alarm cấu hình trước khi chạy dịch vụ tốn phí |
+| Lỗi tích hợp AI / thiếu quyền | Trung bình | Thấp | IAM Role `ComprehendReadOnly` gắn vào instance; restart service sau khi đổi role |
+| Lộ credentials | Cao | Thấp | Không hardcode Access Key bất kỳ đâu; cấu hình qua `app.env`/biến môi trường |
 
 ---
 
 ### 8. Kết quả mong đợi
 
-- Mở rộng từ 10 đến 10.000+ người chơi đồng thời.
-- Giảm hóa đơn cloud đến 80% so với server 24/7.
-- Bảo mật enterprise, GitOps an toàn, analytics tự động sau trận.
+- REST API Task Manager hoạt động với JWT auth, CRUD project/task và cập nhật trạng thái.
+- AI gợi ý mức ưu tiên task và trích xuất từ khóa qua Amazon Comprehend.
+- Triển khai an toàn trên AWS (database private, IAM ít quyền nhất, frontend HTTPS).
+- Tài liệu workshop tái sử dụng được và tài khoản AWS sạch sau khi kết thúc.

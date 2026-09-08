@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-**On this page**, you will find my internship worklog for the **First Cloud AI Journey (FCAJ)** program at **Amazon Web Services Vietnam**. The internship ran for **7 weeks** from **25/07/2026** to **08/09/2026**, covering AWS fundamentals, a capstone fighting-game project, workshop labs, and final report delivery.
+**On this page**, you will find my internship worklog for the **First Cloud AI Journey (FCAJ)** program at **Amazon Web Services Vietnam**. The internship ran for **7 weeks** from **25/07/2026** to **08/09/2026**, covering AWS fundamentals, hands-on workshops, the **Task Manager API** main project (EC2 + RDS + Amazon Comprehend AI), and final report delivery.
 
 **Student:** Bùi Minh Quân (MSSV: 0212468)  
 **Mentor:** Nguyễn Gia Hưng – hunggia@amazon.com.vn  
@@ -18,10 +18,10 @@ pre: " <b> 1. </b> "
 
 **Week 3:** [Data storage (S3, DynamoDB, EBS) and CloudWatch/AWS CLI](1.3-Week3/)
 
-**Week 4:** [Building the game prototype — Scratch to LeopardJS with authentication](1.4-Week4/)
+**Week 4:** [Workshops — static hosting, serverless API and cost monitoring](1.4-Week4/)
 
-**Week 5:** [Client handoff and CI/CD with GitHub Actions, IAM and CodeDeploy](1.5-Week5/)
+**Week 5:** [VPC 2-tier, RDS MySQL and the Task Manager backend on EC2](1.5-Week5/)
 
-**Week 6:** [Completing the capstone and workshop labs](1.6-Week6/)
+**Week 6:** [AI integration with Amazon Comprehend, frontend and E2E testing](1.6-Week6/)
 
 **Week 7:** [Deploying the report site and final deliverables](1.7-Week7/)

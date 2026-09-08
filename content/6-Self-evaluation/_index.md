@@ -8,7 +8,7 @@ pre: " <b> 6. </b> "
 
 During my internship at **Amazon Web Services Vietnam** (First Cloud AI Journey program) from **25/07/2026** to **08/09/2026**, I had the opportunity to learn, practice, and apply the knowledge acquired at university to a real-world cloud engineering environment.
 
-I participated in the **fighting-game capstone project** — building a serverless + EC2 Spot multiplayer backend on AWS — through which I improved my skills in **cloud architecture, infrastructure as code, CI/CD, technical documentation, and professional communication**.
+I completed the **Task Manager API project** — a full-stack Java Spring Boot backend on EC2 + RDS with Amazon Comprehend AI for automatic task-priority suggestions — through which I improved my skills in **cloud architecture, backend development, AI integration, network design, technical documentation, and professional communication**.
 
 In terms of work ethic, I strived to complete assigned tasks on time, followed program guidelines, and actively engaged with mentors and teammates to improve work quality.
 

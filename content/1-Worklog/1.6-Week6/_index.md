@@ -8,8 +8,8 @@ pre: " <b> 1.6. </b> "
 
 ### Week 6 Objectives:
 
-* Complete the capstone project (async post-match processing, VPC hardening).
-* Complete the AWS workshop lab content.
+* Integrate the AI service (Amazon Comprehend) into the Task Manager backend via an IAM Role.
+* Deploy the frontend on S3 + CloudFront, run end-to-end testing, and document the resource cleanup.
 
 **Period:** 29/08/2026 – 04/09/2026
 
@@ -17,17 +17,16 @@ pre: " <b> 1.6. </b> "
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | ---------- | --------------- | ------------------ |
-| 2 | - Implement async post-match processing: DynamoDB Streams → MatchAnalytics Lambda | 31/08/2026 | 31/08/2026 | |
-| 3 | - Move MatchMaker Lambda to private subnets with VPC endpoints (no NAT); install CodeDeploy agent on the EC2 fleet | 01/09/2026 | 01/09/2026 | |
-| 4 | - Final integration testing: matchmaking → gameplay → match finish → analytics | 02/09/2026 | 02/09/2026 | |
-| 5 | - Complete workshop sections: S3 VPC endpoints, on-prem simulation, cleanup (documented with screenshots, cancel before delete) | 03/09/2026 | 03/09/2026 | FCAJ workshop template |
-| 6 | - Complete capstone deliverables and hand off workshop lab documentation to the team | 04/09/2026 | 04/09/2026 | |
+| 2 | - Create IAM role `taskmanager-ec2-comprehend-role` with `ComprehendReadOnly` <br> - Attach the role to the EC2 instance and restart the systemd service | 31/08/2026 | 31/08/2026 | AWS IAM docs |
+| 3 | - Implement `AiAnalysisService` in the backend (DetectSentiment, DetectKeyPhrases) <br> - **Test:** create a task with urgent wording → expect `priority = HIGH` + `aiKeyPhrases` | 01/09/2026 | 01/09/2026 | Amazon Comprehend docs |
+| 4 | - Point the frontend `API_BASE` to the EC2 endpoint and upload the site to S3 <br> - Create the CloudFront distribution for the frontend | 02/09/2026 | 02/09/2026 | |
+| 5 | - **E2E test:** register → create project/task → AI priority → change status → delete <br> - Document the cleanup steps (RDS, EC2, CloudFront, S3, API Gateway, Lambda, DynamoDB, VPC, IAM) | 03/09/2026 | 03/09/2026 | |
+| 6 | - Verify the full feature set (CRUD + assignee + AI) and finalize the workshop write-ups | 04/09/2026 | 04/09/2026 | |
 
 ### Week 6 Achievements:
 
-* Deployed the **Flow E** async pipeline: `ActiveMatches` DynamoDB Stream → `FightingGameMatchAnalytics` Lambda → `MatchAnalytics` table.
-* Reconfigured the MatchMaker into private subnets with DynamoDB gateway and EC2/CloudWatch interface endpoints.
-* Installed and configured the CodeDeploy agent on game server instances.
-* Verified the full game lifecycle: login → queue → match → WebSocket gameplay → finished match recorded in DynamoDB.
-* Completed all workshop lab write-ups including VPC Gateway endpoints, PrivateLink interface endpoints, and DNS simulation.
-* Documented teardown screenshots (confirmation screens only, no actual deletion).
+* Integrated Amazon Comprehend without any hardcoded credentials — permissions come from the instance IAM Role.
+* Verified the AI-suggested priority and key-phrase extraction on task creation/update.
+* Deployed the plain-JS frontend to S3 + CloudFront and tested the whole system end-to-end through the browser.
+* Completed the feature set: JWT auth, CRUD projects/tasks, status updates, assignee, and AI insights.
+* Documented a screenshot-based resource cleanup guide for the final report.

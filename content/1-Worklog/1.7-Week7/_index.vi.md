@@ -28,4 +28,4 @@ pre: " <b> 1.7. </b> "
 * Hoàn thành báo cáo thực tập 7 tuần trên Hugo với hỗ trợ song ngữ (Tiếng Anh / Tiếng Việt).
 * Điền thông tin cá nhân: **Bùi Minh Quân**, MSSV **0212468**, lớp **68CNCS**, ngành **Khoa học Máy tính**.
 * Ghi nhận thực tập tại **Amazon Web Services Vietnam** dưới sự hướng dẫn của mentor FCAJ.
-* Viết bài thu hoạch và tổng kết hành trình: từ AWS cơ bản → triển khai fighting-game capstone → workshop lab → hoàn thiện báo cáo.
+* Viết bài thu hoạch và tổng kết hành trình: từ AWS cơ bản → các workshop thực hành → Task Manager API tích hợp AI → hoàn thiện báo cáo.

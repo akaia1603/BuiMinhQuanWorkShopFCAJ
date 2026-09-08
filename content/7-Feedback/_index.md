@@ -20,11 +20,11 @@ My mentor provided clear guidance on architecture decisions, reviewed progress r
 
 **3. Relevance of work to academic major**
 
-The capstone fighting-game backend aligned well with my **Computer Science** studies while extending into areas not fully covered in coursework — serverless design, Spot fleet management, GitOps, and VPC endpoint networking. The work bridged university theory with production-style AWS practice.
+The main project — the **Task Manager API** backend — aligned well with my **Computer Science** studies while extending into areas not fully covered in coursework: AWS networking (VPC 2-tier, private subnets, Security Groups), managed databases (RDS), and AI service integration (Amazon Comprehend). The work bridged university theory with production-style AWS practice.
 
 **4. Learning & skill development opportunities**
 
-Beyond the capstone, I gained practical skills through the **AWS Vietnam Community Meetup** in Hanoi, workshop labs, Hugo report publishing, and hands-on troubleshooting of CI/CD pipelines. These experiences improved both technical depth and professional reporting habits.
+Beyond the main project, I gained practical skills through the **AWS Vietnam Community Meetup** in Hanoi, the foundation workshops (cost monitoring, static hosting, serverless API), Hugo report publishing, and hands-on troubleshooting of backend deployments. These experiences improved both technical depth and professional reporting habits.
 
 **5. Company culture & team spirit**
 
@@ -38,9 +38,9 @@ The structured 7-week timeline, clear deliverables (worklog, proposal, workshop,
 
 ### Additional reflections
 
-**What I found most satisfying:** Building end-to-end infrastructure for the fighting-game project — from EC2 warm pool and S3 hosting through OIDC, CodeDeploy, async analytics, and private MatchMaker VPC — and seeing it deploy successfully via GitHub Actions.
+**What I found most satisfying:** Building and deploying the Task Manager API end-to-end — from cost monitoring and a 2-tier VPC through RDS, the Spring Boot backend on EC2, and the Amazon Comprehend AI integration — and seeing the full system work through the browser with automatic priority suggestions.
 
-**What could be improved for future interns:** Earlier alignment on capstone team roles and a shared deployment checklist would reduce integration friction in the final weeks.
+**What could be improved for future interns:** Earlier alignment on project scope and deliverables, plus a shared deployment checklist, would reduce integration friction in the final weeks.
 
 **Would I recommend this program?** Yes. FCAJ offers structured mentorship, real AWS project experience, and exposure to the local cloud community — suitable for students who want hands-on cloud engineering beyond classroom labs.
 

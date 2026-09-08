@@ -28,4 +28,4 @@ pre: " <b> 1.7. </b> "
 * Completed the full 7-week internship report on Hugo with bilingual support (English / Vietnamese).
 * Filled in personal information: **Bùi Minh Quân**, MSSV **0212468**, class **68CNCS**, major **Khoa học Máy tính** (Computer Science).
 * Documented the internship at **Amazon Web Services Vietnam** under the FCAJ mentor.
-* Wrote the event recap article and reflected on the full journey: AWS fundamentals → capstone fighting-game deployment → workshop labs → report delivery.
+* Wrote the event recap article and reflected on the full journey: AWS fundamentals → hands-on workshops → Task Manager API with AI → report delivery.

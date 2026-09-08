@@ -8,7 +8,7 @@ pre: " <b> 6. </b> "
 
 Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Việt Nam** (chương trình First Cloud AI Journey) từ **25/07/2026** đến **08/09/2026**, em đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.
 
-Em tham gia **dự án capstone fighting-game** — xây dựng backend multiplayer serverless + EC2 Spot trên AWS — qua đó cải thiện kỹ năng **kiến trúc cloud, triển khai hạ tầng, CI/CD, viết tài liệu kỹ thuật và giao tiếp chuyên nghiệp**.
+Em hoàn thành **dự án Task Manager API** — backend Java Spring Boot full-stack trên EC2 + RDS với AI Amazon Comprehend gợi ý mức ưu tiên task tự động — qua đó cải thiện kỹ năng **kiến trúc cloud, phát triển backend, tích hợp AI, thiết kế mạng, viết tài liệu kỹ thuật và giao tiếp chuyên nghiệp**.
 
 Về tác phong, em luôn cố gắng hoàn thành nhiệm vụ đúng hạn, tuân thủ quy định chương trình và tích cực trao đổi với mentor cùng đồng đội để nâng cao chất lượng công việc.
 

@@ -20,11 +20,11 @@ Mentor hướng dẫn rõ ràng về quyết định kiến trúc, theo dõi ti�
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**
 
-Dự án capstone fighting-game phù hợp với ngành **Khoa học Máy tính**, đồng thời mở rộng sang serverless, quản lý fleet Spot, GitOps và VPC endpoints — những mảng chưa được đào sâu tại trường. Công việc kết nối lý thuyết với thực hành AWS.
+Dự án chính — **backend Task Manager API** — phù hợp với ngành **Khoa học Máy tính**, đồng thời mở rộng sang mạng AWS (VPC 2-tier, private subnet, Security Group), database quản lý (RDS) và tích hợp dịch vụ AI (Amazon Comprehend) — những mảng chưa được đào sâu tại trường. Công việc kết nối lý thuyết với thực hành AWS.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**
 
-Ngoài capstone, em học thêm qua **AWS Vietnam Community Meetup** tại Hà Nội, workshop lab, xuất bản báo cáo Hugo và xử lý sự cố CI/CD. Các trải nghiệm này nâng cao cả chiều sâu kỹ thuật lẫn kỹ năng viết báo cáo.
+Ngoài dự án chính, em học thêm qua **AWS Vietnam Community Meetup** tại Hà Nội, các workshop nền tảng (giám sát chi phí, hosting tĩnh, serverless API), xuất bản báo cáo Hugo và xử lý sự cố triển khai backend. Các trải nghiệm này nâng cao cả chiều sâu kỹ thuật lẫn kỹ năng viết báo cáo.
 
 **5. Văn hóa & tinh thần đồng đội**
 
@@ -38,9 +38,9 @@ Lộ trình 7 tuần rõ ràng, deliverable cụ thể (worklog, proposal, works
 
 ### Một số suy ngẫm thêm
 
-**Điều em hài lòng nhất:** Xây dựng hạ tầng end-to-end cho fighting-game — từ EC2 warm pool, S3 hosting đến OIDC, CodeDeploy, async analytics và VPC MatchMaker private — và thấy pipeline GitHub Actions chạy thành công.
+**Điều em hài lòng nhất:** Xây dựng và triển khai Task Manager API end-to-end — từ giám sát chi phí, VPC 2-tier đến RDS, backend Spring Boot trên EC2 và tích hợp AI Amazon Comprehend — và thấy toàn hệ thống hoạt động qua trình duyệt với gợi ý mức ưu tiên tự động.
 
-**Điều cần cải thiện cho thực tập sinh sau:** Thống nhất vai trò trong team capstone sớm hơn và có checklist tích hợp chung sẽ giảm ma sát ở giai đoạn cuối.
+**Điều cần cải thiện cho thực tập sinh sau:** Thống nhất phạm vi và deliverable của dự án sớm hơn, kèm checklist triển khai chung, sẽ giảm ma sát ở giai đoạn cuối kỳ.
 
 **Có khuyên bạn bè tham gia không?** Có. FCAJ mang lại mentorship có cấu trúc, dự án AWS thực tế và kết nối cộng đồng cloud — phù hợp sinh viên muốn thực hành cloud engineering ngoài lab trên lớp.
 
