@@ -23,7 +23,7 @@ pre: " <b> 1.7. </b> "
 ### Kết quả đạt được tuần 7:
 
 * Fork và tùy chỉnh template báo cáo thực tập Hugo cho cá nhân.
-* Trỏ repository về `akaia1603/BuiMinhQuan-FCAJ-Workshop` với `baseURL` và author đúng.
+* Trỏ repository về `akaia1603/BuiMinhQuanWorkShopFCAJ` với `baseURL` và author đúng.
 * Deploy thành công website báo cáo qua GitHub Actions lên GitHub Pages.
 * Hoàn thành báo cáo thực tập 7 tuần trên Hugo với hỗ trợ song ngữ (Tiếng Anh / Tiếng Việt).
 * Điền thông tin cá nhân: **Bùi Minh Quân**, MSSV **0212468**, lớp **68CNCS**, ngành **Khoa học Máy tính**.

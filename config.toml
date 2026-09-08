@@ -1,4 +1,4 @@
-baseURL = "https://akaia1603.github.io/BuiMinhQuan-FCAJ-Workshop/"
+baseURL = "https://akaia1603.github.io/BuiMinhQuanWorkShopFCAJ/"
 relativeURLs = false
 canonifyURLs = true
 defaultContentLanguage = "en"
@@ -14,7 +14,7 @@ home = [ "HTML", "RSS", "JSON"]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "workshop"
   # Git hub repo link
-  editURL = "https://github.com/akaia1603/BuiMinhQuan-FCAJ-Workshop/edit/main/content/"
+  editURL = "https://github.com/akaia1603/BuiMinhQuanWorkShopFCAJ/edit/main/content/"
   description = ""
   author = "bmq1603@gmail.com"
   showVisitedLinks = true

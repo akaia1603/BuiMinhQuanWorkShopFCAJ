@@ -23,7 +23,7 @@ pre: " <b> 1.7. </b> "
 ### Week 7 Achievements:
 
 * Forked and customized the Hugo internship report template for personal use.
-* Pointed the repository to `akaia1603/BuiMinhQuan-FCAJ-Workshop` with the correct `baseURL` and author settings.
+* Pointed the repository to `akaia1603/BuiMinhQuanWorkShopFCAJ` with the correct `baseURL` and author settings.
 * Successfully deployed the report website via GitHub Actions to GitHub Pages.
 * Completed the full 7-week internship report on Hugo with bilingual support (English / Vietnamese).
 * Filled in personal information: **Bùi Minh Quân**, MSSV **0212468**, class **68CNCS**, major **Khoa học Máy tính** (Computer Science).
