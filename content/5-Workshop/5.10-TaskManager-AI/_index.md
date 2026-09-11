@@ -22,6 +22,15 @@ Fulfil CLO3: integrate AI (Amazon Comprehend) into the backend. Instead of hardc
 1. **EC2 Console → select the backend instance → Actions → Security → Modify IAM role**.
 2. Choose the new role → **Update IAM role**.
 
+> **Verify the role from EC2 (IMDSv2):** the instance enables **IMDSv2 (Required)**, so the plain metadata request returns empty. A token is needed first:
+>
+> ```bash
+> TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+> curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/iam/security-credentials/
+> ```
+>
+> Returning the role name (`taskmanager-ec2-comprehend-role`) means it is attached successfully.
+
 ## Step 3 — Restart & verify
 
 1. Restart the backend service so the AWS SDK picks up the new permissions: `sudo systemctl restart taskmanager`.
@@ -31,6 +40,12 @@ Fulfil CLO3: integrate AI (Amazon Comprehend) into the backend. Instead of hardc
 
 - The task creation response includes `priority = HIGH` and `aiKeyPhrases` filled with the phrases Comprehend extracted
 - No access keys in the code — permission comes from the instance role
+
+## Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| Tasks always get `MEDIUM` priority even with an urgent description; the log shows `The AWS Access Key Id needs a subscription for the service` (HTTP 400) | Amazon Comprehend has not been **activated** for the account in the region in use. Open the AWS Console → switch to the correct region (`ap-southeast-1`) → find "Comprehend" → run **Real-time analysis** (Analyze) once to activate it — it is covered by the Free Tier. When the AI call fails, the system falls back to `MEDIUM` gracefully, so users see no crash |
 
 ## Code example
 

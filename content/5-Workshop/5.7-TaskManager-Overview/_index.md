@@ -12,11 +12,11 @@ Task Manager API is a REST backend for small-scale work/project management: user
 
 ## Architecture
 
-> **[Diagram — insert later]:** user → CloudFront + S3 (frontend) → EC2 Spring Boot API (public subnet) → RDS MySQL (private subnet); EC2 also calls Amazon Comprehend via an IAM Role — everything inside a single VPC.
+> **[Diagram — insert later]:** user → **Nginx on EC2 (frontend, port 80)** → **Spring Boot API (port 8080)** → RDS MySQL (private subnet); EC2 also calls Amazon Comprehend via an IAM Role — everything inside a single VPC. The frontend is served by Nginx running on the same EC2 as the backend; the **S3 + CloudFront** option is practiced separately in section [5.4](5.4-S3-CloudFront/).
 
 ## Components
 
-- **Frontend:** plain HTML/CSS/JavaScript, hosted on **S3 + CloudFront**.
+- **Frontend:** plain HTML/CSS/JavaScript, served by **Nginx** running on the EC2 instance itself; the S3 + CloudFront option is practiced separately in section [5.4](5.4-S3-CloudFront/).
 - **Backend:** REST API in Java Spring Boot on **EC2** (public subnet of the VPC).
 - **Database:** MySQL on **Amazon RDS** (private subnet), reachable only from the EC2 Security Group.
 - **AI service:** **Amazon Comprehend** called via an IAM Role attached to EC2 (no hardcoded Access Key) to detect sentiment and extract key phrases from task descriptions.
@@ -28,9 +28,9 @@ Task Manager API is a REST backend for small-scale work/project management: user
 | Language | Java 17 |
 | Backend framework | Spring Boot 3.3, Spring Security, Spring Data JPA |
 | Authentication | JWT (JSON Web Token), BCrypt password hashing |
-| Database | MySQL 8.0 (Amazon RDS) |
+| Database | MySQL 8.x (Amazon RDS) |
 | AI service | Amazon Comprehend (DetectSentiment, DetectKeyPhrases) |
-| Frontend | HTML5, CSS3, plain JavaScript (Fetch API) |
+| Frontend | HTML5, CSS3, plain JavaScript (Fetch API), Nginx (web server) |
 | Packaging & deployment | Docker, Docker Compose |
 | Cloud infra | Amazon EC2, Amazon RDS, Amazon VPC, IAM Role |
 | Build tool | Apache Maven |

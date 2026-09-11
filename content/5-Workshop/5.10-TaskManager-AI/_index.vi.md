@@ -22,6 +22,15 @@ pre: " <b> 5.10. </b> "
 1. **EC2 Console → chọn instance đang chạy backend → Actions → Security → Modify IAM role**.
 2. Chọn role vừa tạo → **Update IAM role**.
 
+> **Xác nhận role từ EC2 (IMDSv2):** instance bật **IMDSv2 (Required)** nên lệnh metadata thông thường sẽ trả về trống. Cần lấy token trước:
+>
+> ```bash
+> TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+> curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/iam/security-credentials/
+> ```
+>
+> Trả về tên role (`taskmanager-ec2-comprehend-role`) là đã gắn thành công.
+
 ## Bước 3 — Khởi động lại & kiểm thử
 
 1. Khởi động lại service backend để AWS SDK nhận quyền mới: `sudo systemctl restart taskmanager`.
@@ -31,6 +40,12 @@ pre: " <b> 5.10. </b> "
 
 - Response tạo task trả về `priority = HIGH` và `aiKeyPhrases` chứa các cụm từ khóa do Comprehend trích xuất
 - Không có bất kỳ access key nào trong code — quyền lấy từ instance role
+
+## Troubleshooting
+
+| Vấn đề | Giải pháp |
+|--------|-----------|
+| Task luôn được gợi ý `MEDIUM` dù mô tả khẩn cấp; log báo `The AWS Access Key Id needs a subscription for the service` (HTTP 400) | Dịch vụ Amazon Comprehend chưa được **kích hoạt** trong tài khoản ở region đang dùng. Vào AWS Console → chọn đúng region (`ap-southeast-1`) → tìm "Comprehend" → chạy thử **Real-time analysis** (Analyze) một lần để kích hoạt — nằm trong Free Tier. Khi AI lỗi, hệ thống chủ động fallback về `MEDIUM` nên người dùng không gặp sự cố |
 
 ## Code minh họa
 

@@ -12,11 +12,11 @@ Task Manager API là REST API backend phục vụ quản lý công việc/dự �
 
 ## Kiến trúc
 
-> **[Sơ đồ — chưa chèn ảnh]:** user → CloudFront + S3 (frontend) → EC2 Spring Boot API (public subnet) → RDS MySQL (private subnet); EC2 còn gọi Amazon Comprehend qua IAM Role — tất cả trong một VPC.
+> **[Sơ đồ — chưa chèn ảnh]:** user → **Nginx trên EC2 (frontend, port 80)** → **Spring Boot API (port 8080)** → RDS MySQL (private subnet); EC2 còn gọi Amazon Comprehend qua IAM Role — tất cả trong một VPC. Frontend được phục vụ bởi Nginx chạy trên cùng EC2 với backend; phương án **S3 + CloudFront** đã được thực hành riêng ở mục [5.4](5.4-S3-CloudFront/).
 
 ## Các thành phần chính
 
-- **Frontend:** HTML/CSS/JavaScript thuần, triển khai trên **S3 + CloudFront**.
+- **Frontend:** HTML/CSS/JavaScript thuần, phục vụ bởi **Nginx** chạy trên chính EC2 (cùng instance với backend); phương án S3 + CloudFront đã được thực hành riêng ở mục [5.4](5.4-S3-CloudFront/).
 - **Backend:** REST API Java Spring Boot trên **EC2** (public subnet của VPC).
 - **Database:** MySQL trên **Amazon RDS** (private subnet), chỉ nhận kết nối từ Security Group của EC2.
 - **AI service:** **Amazon Comprehend** được EC2 gọi qua IAM Role (không hardcode Access Key) để phân tích sentiment và trích xuất từ khóa từ mô tả task.
@@ -28,9 +28,9 @@ Task Manager API là REST API backend phục vụ quản lý công việc/dự �
 | Ngôn ngữ lập trình | Java 17 |
 | Framework Backend | Spring Boot 3.3, Spring Security, Spring Data JPA |
 | Xác thực | JWT (JSON Web Token), mã hóa mật khẩu BCrypt |
-| Cơ sở dữ liệu | MySQL 8.0 (Amazon RDS) |
+| Cơ sở dữ liệu | MySQL 8.x (Amazon RDS) |
 | Dịch vụ AI | Amazon Comprehend (DetectSentiment, DetectKeyPhrases) |
-| Frontend | HTML5, CSS3, JavaScript thuần (Fetch API) |
+| Frontend | HTML5, CSS3, JavaScript thuần (Fetch API), Nginx (web server) |
 | Đóng gói & triển khai | Docker, Docker Compose |
 | Hạ tầng Cloud | Amazon EC2, Amazon RDS, Amazon VPC, IAM Role |
 | Công cụ build | Apache Maven |

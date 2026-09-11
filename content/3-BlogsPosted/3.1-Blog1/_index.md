@@ -1,43 +1,43 @@
 ---
 title: "Blog 1"
-date: 2026-08-10
+date: 2026-09-12
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# HOW ALS GEOANALYTICS' LITHOLENS REVOLUTIONIZES CORE LOGGING THROUGH MACHINE LEARNING WITH AMAZON EKS
+# INTRODUCING GUARDRAILS IN AMAZON BEDROCK KNOWLEDGE BASES
 
-ALS Geoanalytics developed **LithoLens**, a cloud-native platform utilizing computer vision and machine learning (ML) to automate and optimize the process of geological core logging. The system automates the ingestion, classification, and analysis of drill core photographs, significantly speeding up geological evaluations for mining and resource exploration.
+Extracted from an enterprise RAG Chatbot architecture case study on the AWS Machine Learning Blog: a solution that fully addresses large-scale internal data retrieval challenges on a completely serverless infrastructure.
+
+The system is designed entirely around serverless principles with 3 key components:
 
 ### Key Architectural Components:
 
-- **Client Access & API Layer:**  
-  The client applications connect securely through **Amazon API Gateway** and **AWS Lambda** (API Layer), with user authentication managed via **Amazon Cognito**.
+- **Automated Ingestion & Vector DB:**  
+  Raw data from Amazon S3 is automatically chunked and converted into vectors via Amazon Bedrock Titan Embeddings, then stored in Amazon OpenSearch Serverless.
 
-- **Compute & Processing Layer:**  
-  **Amazon EKS (Elastic Kubernetes Service)** orchestrates the containerized machine learning inference workloads. Running models on EKS allows ALS to scale container instances dynamically based on the volume of images being processed.
+- **Core Processing Flow:**  
+  Amazon Bedrock Knowledge Bases retrieves the context and orchestrates user questions to Anthropic Claude 3 to synthesize responses.
 
-- **Storage & Database Layer:**
-  - **Amazon S3** stores the massive volume of high-resolution drill core images.
-  - **Amazon RDS** manages metadata, user accounts, and structural geological records.
-  - **Amazon CloudWatch** monitors application performance and stores operational logs.
+- **Risk Control:**  
+  Amazon Bedrock Guardrails is integrated to block sensitive personal data and reduce hallucination of the LLM.
 
 ### Benefits of the Architecture:
 
-- **Scalability:** Auto-scaling Kubernetes clusters in EKS efficiently handle spikes in machine learning workloads.
-- **Cost Efficiency:** Serverless APIs (API Gateway & Lambda) combined with scalable containers ensure ALS only pays for active computing resource usage.
-- **Performance:** GPU-optimized instances in EKS speed up deep learning image inference.
+- The system achieves a response time under 2 seconds per query.
+- Completely eliminates infrastructure maintenance costs when idle, thanks to the On-Demand mechanism.
+- Using Managed Services helps development teams minimize the operational cost of running a Vector Database manually.
 
 ---
 
 ### Architecture Diagram:
 
-![LithoLens Architecture](/images/3-BlogsPosted/blog1.png)
+![RAG Chatbot Architecture](/images/3-BlogsPosted/blog1.png)
 
 ---
 
 ### Links and References:
 
-- **Facebook Post:** [AWS Study Group Facebook Post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199204024177891/)
-- **Reference Article:** [How ALS Geoanalytics' LithoLens revolutionizes core logging through machine learning with Amazon EKS](https://aws.amazon.com/vi/blogs/architecture/how-als-geoanalytics-litholens-revolutionizes-core-logging-through-machine-learning-with-amazon-eks/)
+- **Facebook Post:** [AWS Study Group Facebook Post](https://aws.amazon.com/blogs/machine-learning/introducing-guardrails-in-knowledge-bases-for-amazon-bedrock/?fbclid=IwY2xjawURPZlwZG9mBWV4dG4DYWVtAjEwAGJyaWQRMWhyYk9KczFxVDF0cGJhUnJzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeqpCHORwGtxwsHoPrJQKgvbUBUnE0KZh2yUTMQDtq60v12CvrbNssxJ6NmM4_aem_u1Me9mNwOgxTyCPdcEr6zg)
+- **Reference Article:** [Introducing guardrails in Amazon Bedrock Knowledge Bases](https://aws.amazon.com/blogs/machine-learning/introducing-guardrails-in-knowledge-bases-for-amazon-bedrock/)
