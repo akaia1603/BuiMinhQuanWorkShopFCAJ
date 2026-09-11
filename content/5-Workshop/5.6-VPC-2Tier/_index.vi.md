@@ -12,35 +12,14 @@ Thiết kế VPC 2 tầng: public subnet cho EC2 tiếp xúc internet và privat
 
 ## Kiến trúc
 
-> **[Sơ đồ — chưa chèn ảnh]:** Internet → IGW → Public Subnet (EC2); Private Subnet riêng biệt, cùng nằm trong 1 VPC.
+![Sơ đồ kiến trúc VPC 2-tier](/images/5-Workshop/5.6-VPC-2Tier/01-diagram.png)
 
-## Bước 1 — VPC & subnet
+*Sơ đồ: Internet → IGW → Public Subnet (EC2); Private Subnet riêng biệt, cùng nằm trong 1 VPC.*
 
-1. Tạo VPC với CIDR `10.0.0.0/16`.
-2. Tạo 2 subnet: Public `10.0.1.0/24` và Private `10.0.2.0/24`, đặt ở 2 Availability Zone khác nhau.
+## Các mục con
 
-## Bước 2 — Internet Gateway & route table
-
-1. Tạo **Internet Gateway**, gắn vào VPC.
-2. Tạo route table cho subnet Public, thêm route `0.0.0.0/0` → Internet Gateway, gán vào subnet Public.
-3. Subnet Private giữ route table mặc định (không có đường ra internet).
-
-## Bước 3 — Security Group
-
-1. Tạo Security Group cho phép **SSH (port 22, nguồn: My IP)** và **HTTP (port 80, nguồn: Anywhere)**.
-
-## Bước 4 — Khởi chạy EC2
-
-1. Khởi chạy **EC2 instance (Amazon Linux 2023, t2.micro)** trong subnet Public.
-2. Bật **Auto-assign public IP**, gắn Security Group vừa tạo.
-
-## Bước 5 — Kiểm thử SSH
-
-1. SSH từ máy cá nhân tới EC2 bằng key pair.
-
-## Kết quả mong đợi
-
-- EC2 public kết nối được bằng SSH (và HTTP) từ internet
-- Subnet Private không có đường ra internet
-
-> **[CHỤP MÀN HÌNH — chưa chèn ảnh]:** (1) sơ đồ Resource map của VPC; (2) cấu hình Route Table; (3) cấu hình Security Group; (4) terminal kết nối SSH thành công tới EC2.
+1. [Tạo VPC & subnet](5.6.1-Create-VPC-and-Subnets/) — `10.0.0.0/16`, Public `10.0.1.0/24`, Private `10.0.2.0/24`.
+2. [Internet Gateway & route table](5.6.2-IGW-and-Route-Table/) — `0.0.0.0/0` → IGW cho subnet Public.
+3. [Tạo Security Group](5.6.3-Create-Security-Group/) — rule SSH và HTTP.
+4. [Khởi chạy EC2](5.6.4-Launch-EC2/) — Amazon Linux 2023, t2.micro, subnet Public.
+5. [Xác minh SSH & kết quả](5.6.5-Verify-SSH-and-Outcome/) — kết nối và xác nhận thiết kế.

@@ -17,25 +17,8 @@ Prepare the AWS account and agree on a single Region before deploying any servic
 - Postman or curl for API testing
 - JDK 17, Maven and Docker installed locally (to build/test before deploying)
 
-## Step 1 — Sign in to the console
+## Subsections
 
-1. Open https://console.aws.amazon.com and sign in.
-
-## Step 2 — Select the Region
-
-1. In the top-right corner of the navigation bar, choose **Asia Pacific (Singapore) — `ap-southeast-1`** (or the region agreed with the FCAJ program).
-2. All services in this report are deployed in this same region.
-
-## Expected outcome
-
-- Region selector shows `ap-southeast-1` for every console action
-- Billing alarms still use `us-east-1` (they are region-specific, see [5.3](5.3-Cost-Monitoring/))
-
-> **[Screenshot — insert later]:** Console with the correct Region `ap-southeast-1` shown in the top-right corner.
-
-## Troubleshooting
-
-| Issue | Check |
-|-------|-------|
-| Resources created in a different region | Confirm the region selector top-right before every console action |
-| Cross-service calls fail | Services deployed in different regions — keep everything in `ap-southeast-1` |
+1. [Sign in to the console](5.2.1-Sign-in-to-Console/) — login to AWS.
+2. [Select the Region](5.2.2-Select-Region/) — choose `ap-southeast-1`.
+3. [Verify & troubleshooting](5.2.3-Verify-and-Troubleshooting/) — expected outcome and common issues.

@@ -12,34 +12,15 @@ Build a notes API entirely serverless: API Gateway → Lambda → DynamoDB, with
 
 ## Architecture
 
-> **[Diagram — insert later]:** client → API Gateway → Lambda → DynamoDB.
+![Serverless notes API — architecture diagram](/images/5-Workshop/5.5-Serverless-API/01-diagram.png)
 
-## Step 1 — DynamoDB table
+*Diagram: client → API Gateway → Lambda → DynamoDB.*
 
-1. Create table `fcaj-notes`, Partition key: `id` (String), keep default settings (on-demand).
+## Subsections
 
-## Step 2 — IAM role for Lambda
-
-1. Create an IAM Role for Lambda with two policies: `AWSLambdaBasicExecutionRole` and `AmazonDynamoDBFullAccess`.
-
-## Step 3 — Lambda function
-
-1. Create Lambda function `fcaj-notes-api`, runtime **Python 3.12**, attach the IAM role above.
-2. Write code handling two methods — **GET** (list notes) and **POST** (add a note) — then **Deploy**.
-
-## Step 4 — API Gateway
-
-1. Create an **HTTP API** and integrate it with the Lambda function.
-2. Add two routes: **GET /notes** and **POST /notes**.
-
-## Step 5 — Test
-
-1. Call **GET /notes** (expect an empty array on first run).
-2. **POST /notes** with a sample payload, then call **GET /notes** again to confirm the item was persisted in DynamoDB.
-
-## Expected outcome
-
-- GET/POST respond with JSON and DynamoDB stores the note
-- No servers to manage — everything is serverless
-
-> **[Screenshot — insert later]:** (1) DynamoDB table with the new item; (2) Lambda function source code; (3) API Gateway route list; (4) successful GET/POST responses in Postman (JSON response).
+1. [Create the DynamoDB table](5.5.1-Create-DynamoDB-Table/) — `fcaj-notes`.
+2. [Create the IAM role for Lambda](5.5.2-IAM-Role-for-Lambda/) — basic execution + DynamoDB access.
+3. [Create the Lambda function](5.5.3-Create-Lambda-Function/) — Python 3.12, GET + POST handlers.
+4. [Create the API Gateway](5.5.4-Create-API-Gateway/) — HTTP API with `GET /notes` and `POST /notes`.
+5. [Test the API](5.5.5-Test-Notes-API/) — GET/POST in Postman.
+6. [Expected outcome](5.5.6-Expected-Outcome/) — summary of the serverless result.

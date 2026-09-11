@@ -12,34 +12,15 @@ Xây dựng API ghi chú hoàn toàn serverless: API Gateway → Lambda → Dyna
 
 ## Kiến trúc
 
-> **[Sơ đồ — chưa chèn ảnh]:** client → API Gateway → Lambda → DynamoDB.
+![Sơ đồ kiến trúc serverless notes API](/images/5-Workshop/5.5-Serverless-API/01-diagram.png)
 
-## Bước 1 — Bảng DynamoDB
+*Sơ đồ: client → API Gateway → Lambda → DynamoDB.*
 
-1. Tạo bảng `fcaj-notes`, Partition key: `id` (String), giữ nguyên Default settings (on-demand).
+## Các mục con
 
-## Bước 2 — IAM Role cho Lambda
-
-1. Tạo IAM Role cho Lambda với 2 policy: `AWSLambdaBasicExecutionRole` và `AmazonDynamoDBFullAccess`.
-
-## Bước 3 — Lambda function
-
-1. Tạo Lambda function `fcaj-notes-api`, Runtime **Python 3.12**, gắn IAM Role vừa tạo.
-2. Viết mã xử lý 2 method — **GET** (liệt kê note) và **POST** (thêm note mới) — rồi **Deploy**.
-
-## Bước 4 — API Gateway
-
-1. Tạo **HTTP API**, tích hợp với Lambda function.
-2. Cấu hình 2 route: **GET /notes** và **POST /notes**.
-
-## Bước 5 — Kiểm thử
-
-1. Gọi **GET /notes** (trả về mảng rỗng ban đầu).
-2. **POST /notes** với nội dung mẫu, gọi lại **GET /notes** để xác nhận dữ liệu đã lưu vào DynamoDB.
-
-## Kết quả mong đợi
-
-- GET/POST trả về JSON và DynamoDB lưu được note
-- Không có server phải quản lý — toàn bộ serverless
-
-> **[CHỤP MÀN HÌNH — chưa chèn ảnh]:** (1) bảng DynamoDB có item vừa thêm; (2) mã nguồn Lambda function; (3) danh sách route trên API Gateway; (4) kết quả gọi GET/POST thành công trên Postman (response JSON).
+1. [Tạo bảng DynamoDB](5.5.1-Create-DynamoDB-Table/) — `fcaj-notes`.
+2. [Tạo IAM Role cho Lambda](5.5.2-IAM-Role-for-Lambda/) — quyền execution cơ bản + truy cập DynamoDB.
+3. [Tạo Lambda function](5.5.3-Create-Lambda-Function/) — Python 3.12, handler GET + POST.
+4. [Tạo API Gateway](5.5.4-Create-API-Gateway/) — HTTP API với `GET /notes` và `POST /notes`.
+5. [Kiểm thử API](5.5.5-Test-Notes-API/) — GET/POST trên Postman.
+6. [Kết quả mong đợi](5.5.6-Expected-Outcome/) — tổng kết kết quả serverless.

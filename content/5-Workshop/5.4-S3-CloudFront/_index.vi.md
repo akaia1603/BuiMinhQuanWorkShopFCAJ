@@ -12,35 +12,14 @@ Host website tĩnh (ví dụ frontend bundle) trên S3 và phục vụ qua Cloud
 
 ## Kiến trúc
 
-> **[Sơ đồ — chưa chèn ảnh]:** user → CloudFront → S3 bucket.
+![Sơ đồ kiến trúc S3 + CloudFront](/images/5-Workshop/5.4-S3-CloudFront/01-diagram.png)
 
-## Bước 1 — Tạo S3 bucket
+*Sơ đồ: user → CloudFront → S3 bucket.*
 
-1. Tạo S3 bucket (tên duy nhất toàn cầu) tại `ap-southeast-1`.
-2. Bỏ tick **Block all public access** để cho phép truy cập công khai.
+## Các mục con
 
-## Bước 2 — Upload và bật static hosting
-
-1. Upload file `index.html` lên bucket.
-2. **Properties → Static website hosting → Enable**, Index document: `index.html`.
-
-## Bước 3 — Bucket policy
-
-1. **Permissions → Bucket policy**, thêm policy cho phép `s3:GetObject` công khai trên toàn bộ object.
-
-## Bước 4 — CloudFront Distribution
-
-1. Tạo **CloudFront Distribution**, Origin domain trỏ về bucket vừa tạo.
-2. Viewer protocol policy: **Redirect HTTP to HTTPS**.
-
-## Bước 5 — Kiểm thử
-
-1. Đợi Distribution chuyển sang trạng thái **Enabled**.
-2. Mở **Distribution domain name** trên trình duyệt để kiểm thử.
-
-## Kết quả mong đợi
-
-- Website tĩnh truy cập được qua link CloudFront với ổ khóa HTTPS
-- Quyền đọc công khai chỉ cấp qua bucket policy (không đổi ACL từng object)
-
-> **[CHỤP MÀN HÌNH — chưa chèn ảnh]:** (1) trang cấu hình S3 bucket (Static website hosting: Enabled); (2) CloudFront Distribution ở trạng thái Enabled; (3) trình duyệt hiển thị thành công trang web qua link CloudFront (có ổ khóa HTTPS).
+1. [Tạo S3 bucket](5.4.1-Create-S3-Bucket/) — tên duy nhất toàn cầu, cho phép đọc công khai.
+2. [Bật static hosting](5.4.2-Enable-Static-Hosting/) — upload `index.html`, bật Static website hosting.
+3. [Đặt bucket policy](5.4.3-Set-Bucket-Policy/) — `s3:GetObject` công khai.
+4. [Tạo CloudFront Distribution](5.4.4-Create-CloudFront-Distribution/) — origin trỏ về bucket.
+5. [Xác minh & troubleshooting](5.4.5-Verify-and-Troubleshooting/) — truy cập HTTPS qua CloudFront.

@@ -10,17 +10,7 @@ pre: " <b> 5.12. </b> "
 
 Remove every resource created during the internship so no unexpected charges appear after finishing — ideally keeping the month within the Free Tier.
 
-## Steps
+## Subsections
 
-- **RDS:** **Stop** or **Delete** `taskmanager-db` (note: Stop only pauses for a maximum of 7 days, then AWS restarts it automatically).
-- **EC2:** **Terminate** the instances used for the VPC workshop and the Task Manager API.
-- **CloudFront + S3:** **Disable** then **Delete** the distribution; empty and **Delete** the S3 bucket.
-- **Lambda + API Gateway + DynamoDB:** delete the Lambda function, the API Gateway, and the `fcaj-notes` DynamoDB table.
-- **IAM Role:** may be kept (no charge) or deleted if unused.
-- Finally check the **Billing Dashboard** to confirm no resource is generating charges.
-
-## Expected outcome
-
-- Billing dashboard shows only expected/Free Tier charges after cleanup
-
-> **[Screenshot — insert later]:** the Billing Dashboard after cleanup showing costs within the expected range (optional — include only if the faculty requires it).
+1. [Delete the resources](5.12.1-Delete-Resources/) — RDS, EC2, CloudFront, S3, Lambda, API Gateway, DynamoDB, IAM.
+2. [Verify the billing](5.12.2-Verify-Billing/) — confirm the Billing Dashboard shows only expected charges.

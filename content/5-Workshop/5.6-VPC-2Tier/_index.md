@@ -12,35 +12,14 @@ Design a 2-tier VPC: a public subnet for the internet-facing EC2 and a private s
 
 ## Architecture
 
-> **[Diagram — insert later]:** Internet → IGW → public subnet (EC2); private subnet on its own — both inside the same VPC.
+![VPC 2-tier architecture diagram](/images/5-Workshop/5.6-VPC-2Tier/01-diagram.png)
 
-## Step 1 — VPC & subnets
+*Diagram: Internet → IGW → public subnet (EC2); private subnet on its own — both inside the same VPC.*
 
-1. Create a VPC with CIDR `10.0.0.0/16`.
-2. Create two subnets: Public `10.0.1.0/24` and Private `10.0.2.0/24`, placed in two different Availability Zones.
+## Subsections
 
-## Step 2 — Internet Gateway & route table
-
-1. Create an **Internet Gateway** and attach it to the VPC.
-2. Create a route table for the public subnet, add route `0.0.0.0/0` → Internet Gateway, associate it with the public subnet.
-3. The private subnet keeps the default main route table (no internet path).
-
-## Step 3 — Security Group
-
-1. Create a Security Group allowing **SSH (port 22, source: My IP)** and **HTTP (port 80, source: Anywhere)**.
-
-## Step 4 — Launch EC2
-
-1. Launch an **EC2 instance (Amazon Linux 2023, t2.micro)** in the public subnet.
-2. Enable **Auto-assign public IP**, attach the Security Group above.
-
-## Step 5 — Verify SSH access
-
-1. SSH from the personal machine using the key pair.
-
-## Expected outcome
-
-- Public EC2 reachable by SSH (and HTTP) from the internet
-- Private subnet has no route to the internet
-
-> **[Screenshot — insert later]:** (1) VPC Resource map; (2) route table configuration; (3) Security Group rules; (4) successful SSH terminal session to EC2.
+1. [Create VPC & subnets](5.6.1-Create-VPC-and-Subnets/) — `10.0.0.0/16`, public `10.0.1.0/24`, private `10.0.2.0/24`.
+2. [Internet Gateway & route table](5.6.2-IGW-and-Route-Table/) — `0.0.0.0/0` → IGW for the public subnet.
+3. [Create the Security Group](5.6.3-Create-Security-Group/) — SSH and HTTP rules.
+4. [Launch EC2](5.6.4-Launch-EC2/) — Amazon Linux 2023, t2.micro, public subnet.
+5. [Verify SSH & expected outcome](5.6.5-Verify-SSH-and-Outcome/) — connect and confirm the design.
