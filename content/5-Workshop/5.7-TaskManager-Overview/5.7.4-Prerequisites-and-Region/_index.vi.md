@@ -1,9 +1,9 @@
 ---
 title: "Điều kiện tiên quyết & Region"
 date: 2026-09-01
-weight: 2
+weight: 4
 chapter: false
-pre: " <b>5.1.2.</b> "
+pre: " <b>5.7.4.</b> "
 ---
 
 ## Điều kiện tiên quyết

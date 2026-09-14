@@ -10,12 +10,6 @@ pre: " <b> 5.4. </b> "
 
 Host a static website (e.g. the frontend bundle) on S3 and serve it through CloudFront over HTTPS.
 
-## Architecture
-
-![S3 + CloudFront architecture diagram](/images/5-Workshop/5.4-S3-CloudFront/01-diagram.png)
-
-*Diagram: user → CloudFront → S3 bucket.*
-
 ## Subsections
 
 1. [Create the S3 bucket](5.4.1-Create-S3-Bucket/) — globally unique name, public reads allowed.

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="5.5-Serverless-API" id="diag-5-5">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value=" Serverless Notes API — API Gateway + Lambda + DynamoDB " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=3;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="190" y="30" width="450" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="client" value=" Client " style="ellipse;whiteSpace=wrap;html=1;fillColor=#ED7100;strokeColor=#FF8000;strokeWidth=2;fontColor=#FFFFFF;fontSize=9;fontStyle=1;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="70" y="270" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="apigw" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=#FF8000;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=9;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="280" y="270" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="apigwLabel" value=" API Gateway (HTTP) " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="243" y="330" width="135" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lambda" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=#FF8000;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=9;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="lambdaLabel" value=" Lambda Function " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="473" y="330" width="115" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="dynamo" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=#FF8000;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=9;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="dynamoLabel" value=" DynamoDB (fcaj-notes) " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="663" y="330" width="175" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="policies" value=" GET /notes · POST /notes " style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1E90FF;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#1E90FF;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="275" y="160" width="150" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="iamRole" value=" IAM Role " style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1E90FF;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#1E90FF;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="515" y="430" width="100" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value=" HTTPS JSON " style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;strokeColor=#232F3E;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" edge="1" source="client" target="apigw" parent="1"/>
+        <mxCell id="e2" value=" Invoke " style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;strokeColor=#232F3E;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" edge="1" source="apigw" target="lambda" parent="1"/>
+        <mxCell id="e3" value=" Read / Write " style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;strokeColor=#232F3E;fontSize=9;fontStyle=1;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" edge="1" source="lambda" target="dynamo" parent="1"/>
+        <mxCell id="e4" value=" assumes role " style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=1;strokeColor=#1E90FF;dashed=1;fontSize=8;fontStyle=2;fontColor=#1E90FF;labelBackgroundColor=#FFFFFF;" edge="1" source="lambda" target="iamRole" parent="1"/>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;dashed=1;strokeColor=#B0B0B0;" edge="1" source="policies" target="apigw" parent="1"/>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

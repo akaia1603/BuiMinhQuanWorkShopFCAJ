@@ -10,12 +10,6 @@ pre: " <b> 5.6. </b> "
 
 Design a 2-tier VPC: a public subnet for the internet-facing EC2 and a private subnet reserved for the database tier — the same model reused by the Task Manager project.
 
-## Architecture
-
-![VPC 2-tier architecture diagram](/images/5-Workshop/5.6-VPC-2Tier/01-diagram.png)
-
-*Diagram: Internet → IGW → public subnet (EC2); private subnet on its own — both inside the same VPC.*
-
 ## Subsections
 
 1. [Create VPC & subnets](5.6.1-Create-VPC-and-Subnets/) — `10.0.0.0/16`, public `10.0.1.0/24`, private `10.0.2.0/24`.

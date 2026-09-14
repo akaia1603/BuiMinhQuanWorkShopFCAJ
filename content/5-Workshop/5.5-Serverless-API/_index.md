@@ -10,12 +10,6 @@ pre: " <b> 5.5. </b> "
 
 Build a notes API entirely serverless: API Gateway → Lambda → DynamoDB, with no server to manage.
 
-## Architecture
-
-![Serverless notes API — architecture diagram](/images/5-Workshop/5.5-Serverless-API/01-diagram.png)
-
-*Diagram: client → API Gateway → Lambda → DynamoDB.*
-
 ## Subsections
 
 1. [Create the DynamoDB table](5.5.1-Create-DynamoDB-Table/) — `fcaj-notes`.

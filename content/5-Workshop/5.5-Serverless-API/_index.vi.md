@@ -10,12 +10,6 @@ pre: " <b> 5.5. </b> "
 
 Xây dựng API ghi chú hoàn toàn serverless: API Gateway → Lambda → DynamoDB, không cần quản lý server.
 
-## Kiến trúc
-
-![Sơ đồ kiến trúc serverless notes API](/images/5-Workshop/5.5-Serverless-API/01-diagram.png)
-
-*Sơ đồ: client → API Gateway → Lambda → DynamoDB.*
-
 ## Các mục con
 
 1. [Tạo bảng DynamoDB](5.5.1-Create-DynamoDB-Table/) — `fcaj-notes`.

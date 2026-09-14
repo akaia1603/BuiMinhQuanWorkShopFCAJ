@@ -1,9 +1,9 @@
 ---
 title: "Workshop order, skills & checklist"
 date: 2026-09-01
-weight: 3
+weight: 5
 chapter: false
-pre: " <b>5.1.3.</b> "
+pre: " <b>5.7.5.</b> "
 ---
 
 ## Workshop order

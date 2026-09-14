@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="5.7-TaskManager-ERD" id="diag-5-7-erd">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value=" Task Manager — Database ERD " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=3;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="290" y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="users" value="&lt;b&gt;users&lt;/b&gt;&lt;br&gt;id &amp;nbsp; PK&lt;br&gt;username&lt;br&gt;password&lt;br&gt;email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1E90FF;strokeWidth=2;fontSize=10;fontColor=#232F3E;align=left;spacingLeft=10;spacingTop=4;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="190" height="118" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="projects" value="&lt;b&gt;projects&lt;/b&gt;&lt;br&gt;id &amp;nbsp; PK&lt;br&gt;name&lt;br&gt;description&lt;br&gt;owner_id &amp;nbsp; FK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1E90FF;strokeWidth=2;fontSize=10;fontColor=#232F3E;align=left;spacingLeft=10;spacingTop=4;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="390" y="150" width="200" height="118" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tasks" value="&lt;b&gt;tasks&lt;/b&gt;&lt;br&gt;id &amp;nbsp; PK&lt;br&gt;title&lt;br&gt;description&lt;br&gt;status &amp;nbsp; (TODO / IN_PROGRESS / DONE)&lt;br&gt;priority &amp;nbsp; (LOW / MEDIUM / HIGH — AI)&lt;br&gt;ai_key_phrases&lt;br&gt;project_id &amp;nbsp; FK&lt;br&gt;assignee_id &amp;nbsp; FK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1E90FF;strokeWidth=2;fontSize=10;fontColor=#232F3E;align=left;spacingLeft=10;spacingTop=4;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="710" y="110" width="230" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value=" owns 1–N " style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;endArrow=ERmany;startArrow=ERone;strokeColor=#232F3E;strokeWidth=1.5;fontSize=9;fontStyle=2;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" edge="1" source="users" target="projects" parent="1"/>
+        <mxCell id="e2" value=" contains 1–N " style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;endArrow=ERmany;startArrow=ERone;strokeColor=#232F3E;strokeWidth=1.5;fontSize=9;fontStyle=2;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;" edge="1" source="projects" target="tasks" parent="1"/>
+        <mxCell id="e3" value=" assigned to 1–N " style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;endArrow=ERmany;startArrow=ERone;strokeColor=#B0B0B0;strokeWidth=1.5;dashed=1;fontSize=9;fontStyle=2;fontColor=#808080;labelBackgroundColor=#FFFFFF;" edge="1" source="users" target="tasks" parent="1"/>
+
+        <mxCell id="legend" value=" PK = Primary Key &amp;nbsp;|&amp;nbsp; FK = Foreign Key " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#808080;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="350" y="420" width="240" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

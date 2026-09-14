@@ -10,12 +10,6 @@ pre: " <b> 5.4. </b> "
 
 Host website tĩnh (ví dụ frontend bundle) trên S3 và phục vụ qua CloudFront với giao thức HTTPS.
 
-## Kiến trúc
-
-![Sơ đồ kiến trúc S3 + CloudFront](/images/5-Workshop/5.4-S3-CloudFront/01-diagram.png)
-
-*Sơ đồ: user → CloudFront → S3 bucket.*
-
 ## Các mục con
 
 1. [Tạo S3 bucket](5.4.1-Create-S3-Bucket/) — tên duy nhất toàn cầu, cho phép đọc công khai.
