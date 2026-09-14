@@ -4,15 +4,7 @@ date: 2026-09-01
 weight: 1
 chapter: false
 pre: " <b>5.7.1.</b> "
-aliases:
-  - /5-workshop/5.1-workshop-overview/5.1.1-purpose-and-architecture/
 ---
-
-## Purpose
-
-This workshop documents every AWS practice performed during the FCAJ internship in sequence: environment preparation, cost monitoring, foundational serverless and network workshops, then the main project — **Task Manager API**, a complete Java Spring Boot backend on **EC2 + RDS** that integrates **Amazon Comprehend** AI to suggest task priority automatically (fulfils CLO3).
-
-Each page records the exact AWS Console steps and shows a screenshot at every point where evidence is required for the internship report.
 
 ## Problem statement
 

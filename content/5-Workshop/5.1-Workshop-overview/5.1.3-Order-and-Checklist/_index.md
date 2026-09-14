@@ -1,11 +1,9 @@
 ---
 title: "Workshop order, skills & checklist"
 date: 2026-09-01
-weight: 5
+weight: 3
 chapter: false
-pre: " <b>5.7.5.</b> "
-aliases:
-  - /5-workshop/5.1-workshop-overview/5.1.3-order-and-checklist/
+pre: " <b>5.1.3.</b> "
 ---
 
 ## Workshop order

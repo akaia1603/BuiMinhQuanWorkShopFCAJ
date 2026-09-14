@@ -1,11 +1,9 @@
 ---
 title: "Prerequisites & Region"
 date: 2026-09-01
-weight: 4
+weight: 2
 chapter: false
-pre: " <b>5.7.4.</b> "
-aliases:
-  - /5-workshop/5.1-workshop-overview/5.1.2-prerequisites-and-region/
+pre: " <b>5.1.2.</b> "
 ---
 
 ## Prerequisites
