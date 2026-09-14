@@ -89,6 +89,10 @@ Dũng Lương presented a decision framework for choosing the right **agent patt
 - Choose the **simplest agent pattern** that solves the problem, then evolve.
 - The AWS Vietnam community is an open, contributor-driven space worth staying involved with long after the internship.
 
+## Attendance proof
+
+![Event Attendance Proof](/images/4-EventParticipated/event_proofed.jpg)
+
 ## Personal reflection
 
 This was the first event I attended at the very start of my internship, and it was a great introduction to how AWS connects with the broader ecosystem in Vietnam. The recurring message—build real products, understand what you ship, and tie AI work to business value—set a clear direction for the cloud engineering mindset I wanted to develop during the program. It also introduced me to the community of builders and mentors I could learn from throughout the internship.

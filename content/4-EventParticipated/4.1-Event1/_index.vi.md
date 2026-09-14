@@ -89,6 +89,10 @@ Dũng Lương trình bày một khung quyết định để chọn **mẫu agent
 - Chọn **mẫu agent đơn giản nhất** giải quyết được vấn đề, rồi mới tiến hóa thêm.
 - Cộng đồng AWS Việt Nam là nơi cởi mở, đề cao sự đóng góp, đáng để gắn bó lâu dài sau kỳ thực tập.
 
+## Minh chứng tham gia
+
+![Minh chứng tham gia sự kiện](/images/4-EventParticipated/event_proofed.jpg)
+
 ## Suy ngẫm cá nhân
 
 Đây là sự kiện đầu tiên em tham dự đúng thời điểm bắt đầu thực tập, giúp em có cái nhìn tổng quan về cách AWS kết nối với hệ sinh thái Việt Nam. Thông điệp xuyên suốt — xây sản phẩm thật, hiểu những gì mình ship và gắn công việc AI với giá trị kinh doanh — đã định hướng rõ tư duy cloud engineering em muốn phát triển trong chương trình. Sự kiện cũng giới thiệu em đến với cộng đồng các nhà xây dựng và người hướng dẫn mà em có thể học hỏi suốt kỳ thực tập.
