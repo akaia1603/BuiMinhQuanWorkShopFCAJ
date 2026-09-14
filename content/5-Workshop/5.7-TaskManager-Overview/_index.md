@@ -4,6 +4,8 @@ date: 2026-09-01
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "
+aliases:
+  - /5-workshop/5.1-workshop-overview/
 ---
 
 ## Purpose

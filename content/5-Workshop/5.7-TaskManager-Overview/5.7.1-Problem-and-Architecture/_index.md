@@ -4,6 +4,8 @@ date: 2026-09-01
 weight: 1
 chapter: false
 pre: " <b>5.7.1.</b> "
+aliases:
+  - /5-workshop/5.1-workshop-overview/5.1.1-purpose-and-architecture/
 ---
 
 ## Purpose
